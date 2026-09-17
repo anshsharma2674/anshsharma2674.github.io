@@ -213,6 +213,12 @@
     50%{ box-shadow:0 0 0 6px rgba(232,163,61,0); }
   }
   .cl-body h3{ font-size:1.05rem; margin-bottom:0.3em; }
+  .cl-body p a{
+    color:var(--amber); text-decoration:none;
+    border-bottom:1px solid rgba(217,143,43,0.45);
+    transition:border-color .18s ease;
+  }
+  .cl-body p a:hover{ border-bottom-color:var(--amber); }
   .cl-body p{ color:var(--muted); margin-bottom:0; max-width:56ch; }
 
   /* ---------- work ---------- */
@@ -322,7 +328,7 @@
 
 <header class="site-nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">Ansh <span class="nav-version">v0.3</span></a>
+    <a href="#hero" class="nav-logo">Ansh <span class="nav-version">v0.4</span></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -364,6 +370,13 @@
       <h2>Changelog</h2>
       <p class="section-lede">A running record of what I've been building, in the order it happened.</p>
       <ol class="changelog-list">
+                <li class="changelog-item">
+          <span class="cl-version">v0.4</span>
+          <div class="cl-body">
+            <h3>MongoDB certification</h3>
+            <p>Earned the MongoDB Overview: Core Concepts and Architecture badge — documents and collections, how data gets structured, and how MongoDB scales. <a href="https://www.credly.com/badges/178af6e7-a6a5-4c4d-a9bb-32f773e8fdcd" target="_blank" rel="noopener">View badge</a></p>
+          </div>
+        </li>
         <li class="changelog-item">
           <span class="cl-version">v0.3</span>
           <div class="cl-body">
@@ -450,7 +463,7 @@
 </main>
 
 <footer class="site-footer">
-  <p>© Ansh. Site currently at v0.3.</p>
+  <p>© Ansh. Site currently at v0.4.</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
