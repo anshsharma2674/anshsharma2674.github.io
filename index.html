@@ -1,922 +1,1022 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ansh · Computer Science Student</title>
-<meta name="description" content="Portfolio of Ansh, a first-year BSc (Hons) Computer Science student building toward a software or data internship.">
-<meta name="theme-color" content="#05070f">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2305070f'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Arial' font-weight='800' text-anchor='middle' fill='%2322d3ee'%3EA%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2eee6">
+  <meta name="description" content="Ansh is a Computer Science student at Delhi University exploring software development and data analytics through practical projects.">
+  <meta property="og:title" content="Ansh — Software & Data">
+  <meta property="og:description" content="A Computer Science student at Delhi University building practical software and exploring data analytics.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDYzMCI+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIiBmaWxsPSIjMTExMTBmIi8+PGNpcmNsZSBjeD0iOTU3IiBjeT0iMzE1IiByPSIyNTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2VlZTRkNiIgc3Ryb2tlLW9wYWNpdHk9Ii4xMiIvPjxjaXJjbGUgY3g9Ijk1NyIgY3k9IjMxNSIgcj0iMTk3IiBmaWxsPSJub25lIiBzdHJva2U9IiNlODc4NjMiIHN0cm9rZS1vcGFjaXR5PSIuMzYiLz48Y2lyY2xlIGN4PSI5NTciIGN5PSIzMTUiIHI9IjEyNiIgZmlsbD0iI2U4Nzg2MyIgb3BhY2l0eT0iLjEyIi8+PGcgZmlsbD0iI2Y0ZWVlNCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiPjx0ZXh0IHg9Ijk1IiB5PSIxNTUiIGZpbGw9IiNlODc4NjMiIGZvbnQtc2l6ZT0iMTciIGxldHRlci1zcGFjaW5nPSI1Ij5BTlNIIC8gUE9SVEZPTElPPC90ZXh0Pjx0ZXh0IHg9Ijk1IiB5PSIyOTQiIGZvbnQtc2l6ZT0iODMiIGZvbnQtd2VpZ2h0PSI1MDAiIGxldHRlci1zcGFjaW5nPSItNSI+U29mdHdhcmUgJmFtcDs8L3RleHQ+PHRleHQgeD0iOTUiIHk9IjM5MCIgZm9udC1zaXplPSI4MyIgZm9udC13ZWlnaHQ9IjUwMCIgbGV0dGVyLXNwYWNpbmc9Ii01Ij5kYXRhLCBtYWRlPC90ZXh0Pjx0ZXh0IHg9Ijk1IiB5PSI0ODYiIGZpbGw9IiNlODc4NjMiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjkwIiBmb250LXN0eWxlPSJpdGFsaWMiPnVzZWZ1bC48L3RleHQ+PHRleHQgeD0iOTUiIHk9IjU1OCIgZmlsbD0iI2FhYTU5YSIgZm9udC1zaXplPSIxOCIgbGV0dGVyLXNwYWNpbmc9IjIiPkNPTVBVVEVSIFNDSUVOQ0UgwrcgREVMSEkgVU5JVkVSU0lUWTwvdGV4dD48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZThkY2NjIiBzdHJva2Utb3BhY2l0eT0iLjM4Ij48ZWxsaXBzZSBjeD0iOTU3IiBjeT0iMzE1IiByeD0iMjkwIiByeT0iMTA2IiB0cmFuc2Zvcm09InJvdGF0ZSgtMzIgOTU3IDMxNSkiLz48ZWxsaXBzZSBjeD0iOTU3IiBjeT0iMzE1IiByeD0iMjIwIiByeT0iODMiIHRyYW5zZm9ybT0icm90YXRlKDQ3IDk1NyAzMTUpIi8+PC9nPjxjaXJjbGUgY3g9Ijk1NyIgY3k9IjMxNSIgcj0iNiIgZmlsbD0iI2Y0ZWVlNCIvPjxjaXJjbGUgY3g9Ijc5OCIgY3k9IjIwOSIgcj0iNSIgZmlsbD0iI2U4Nzg2MyIvPjxjaXJjbGUgY3g9IjExMDYiIGN5PSIzNzkiIHI9IjUiIGZpbGw9IiNlOGRjY2MiLz48L3N2Zz4K">
+  <title>Ansh — Software & Data</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMzIiIGZpbGw9IiMxMTExMGYiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIyNyIgZmlsbD0iI2U4Nzg2MyIvPjx0ZXh0IHg9IjMyIiB5PSI0NCIgZmlsbD0iIzExMTEwZiIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMzgiIGZvbnQtc3R5bGU9Iml0YWxpYyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QTwvdGV4dD48L3N2Zz4K" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  color-scheme: light;
+  --ink: #191916;
+  --ink-soft: #34342f;
+  --night: #11110f;
+  --night-soft: #1b1a17;
+  --paper: #f2eee6;
+  --paper-bright: #faf8f3;
+  --paper-deep: #e8e1d5;
+  --muted: #77736b;
+  --line: rgba(30, 29, 26, .16);
+  --line-dark: rgba(246, 237, 222, .17);
+  --coral: #e87863;
+  --coral-dark: #b74c39;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
+  --page-max: 1460px;
+  --gutter: clamp(22px, 5.3vw, 92px);
+}
 
-<style>
-  /* =====================================================
-     One colour system for the whole site.
-     Change a value here and the hero and every section follow.
-     ===================================================== */
-  :root {
-    /* surfaces */
-    --bg:        #05070f;                 /* page background */
-    --surface:   rgba(8, 12, 28, 0.78);   /* cards and panels (glass over the 3D background) */
-    --surface-2: #111626;                 /* secondary buttons */
-    --line:      #1b2238;                 /* borders and dividers */
-    --line-2:    #334066;                 /* hover borders */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; background: var(--paper); }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body, button, a { -webkit-tap-highlight-color: transparent; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+::selection { color: var(--night); background: #efab98; }
+.page-wrap, .section-wrap { width: min(calc(100% - var(--gutter) * 2), var(--page-max)); margin-inline: auto; }
+.mono, .eyebrow, .section-index, .section-aside, .project-meta, .fact-label, .path-label, .skill-number, .social-link, .social-location, .footer .mono { font-family: var(--mono); letter-spacing: .08em; }
+.skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; padding: 12px 16px; transform: translateY(-150%); color: var(--night); background: var(--paper-bright); border: 1px solid var(--coral); }
+.skip-link:focus { transform: translateY(0); }
+:focus-visible { outline: 2px solid var(--coral); outline-offset: 4px; }
+.scroll-progress { position: fixed; z-index: 90; inset: 0 auto auto 0; width: 100%; height: 2px; pointer-events: none; background: transparent; }
+.scroll-progress span { display: block; width: 100%; height: 100%; background: var(--coral); transform: scaleX(0); transform-origin: left center; }
 
-    /* text */
-    --text:      #f4f6fb;
-    --muted:     #8d95aa;
+/* Warm paper and ink carry the middle sections through the opening and close. */
+.hero { position: relative; overflow: hidden; color: var(--ink); background: radial-gradient(ellipse at 50% 28%, rgba(232, 120, 99, .11), transparent 45%), var(--paper); }
+.topbar { position: absolute; z-index: 20; top: 0; left: 0; display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 22px var(--gutter); color: var(--ink); background: rgba(242, 238, 230, .88); }
+.wordmark { display: inline-flex; align-items: center; gap: 9px; color: inherit; font-size: 14px; font-weight: 800; letter-spacing: .16em; text-decoration: none; }
+.wordmark-mark { display: grid; width: 29px; height: 29px; place-items: center; color: var(--night); background: var(--coral); border-radius: 50%; font-family: var(--serif); font-style: italic; font-weight: 600; letter-spacing: 0; }
+.wordmark-period { margin-left: -8px; color: var(--coral); }
+.nav { display: flex; align-items: center; gap: clamp(22px, 3vw, 47px); }
+.nav a { position: relative; color: #625e57; font-size: 12px; letter-spacing: .03em; text-decoration: none; transition: color .2s ease; }
+.nav a::after { position: absolute; right: 0; bottom: -6px; left: 0; height: 1px; content: ""; background: var(--coral); transform: scaleX(0); transform-origin: left; transition: transform .22s ease; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--ink); }
+.nav a:hover::after, .nav a[aria-current="page"]::after { transform: scaleX(1); }
+.nav .nav-contact { display: inline-flex; align-items: center; gap: 12px; padding: 11px 17px; color: var(--ink); border: 1px solid rgba(25, 25, 22, .25); border-radius: 999px; background: rgba(250, 248, 243, .5); transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.nav .nav-contact::after { content: none; }
+.nav .nav-contact:hover { border-color: var(--coral-dark); background: rgba(232, 120, 99, .09); transform: translateY(-1px); }
+.nav-contact span { color: var(--coral); font-size: 15px; }
+.menu-toggle { display: none; }
 
-    /* brand accents: cyan is "live / interactive", violet is "what's next" */
-    --cyan:      #22d3ee;
-    --blue:      #38bdf8;
-    --violet:    #8b7cf6;
-    --green:     #34d399;                 /* completed status */
+.hero-inner { position: relative; display: flex; min-height: max(760px, min(900px, 100svh)); align-items: center; justify-content: flex-start; padding-top: 82px; padding-bottom: 42px; }
+.hero-copy { position: relative; z-index: 3; width: 100%; }
+.hero-panel { position: relative; width: min(68%, 880px); margin: 112px 0 0; padding: 28px 18px 30px 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; text-align: left; }
+.hero-identity { position: absolute; z-index: 5; top: 48%; right: 3.5%; left: auto; display: grid; width: clamp(220px, 22vw, 300px); height: auto; place-items: center; transform: translateY(-50%); }
+.hero-avatar { width: 100%; height: auto; object-fit: contain; animation: avatar-float 5.5s ease-in-out infinite; filter: drop-shadow(0 22px 32px rgba(108, 57, 45, .18)); }
+@keyframes avatar-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.speech-bubble { position: absolute; top: 7%; left: 50%; width: max-content; max-width: min(320px, calc(100vw - 46px)); padding: 12px 19px; color: var(--ink); border: 1px solid rgba(183, 76, 57, .24); border-radius: 999px; background: var(--paper-bright); box-shadow: 0 12px 34px rgba(48, 37, 24, .1); font-size: 13px; font-weight: 700; line-height: 1.3; white-space: nowrap; transform: translate(-50%, -35%); }
+.speech-bubble::before { position: absolute; bottom: -6px; left: calc(50% - 6px); width: 11px; height: 11px; content: ""; border-right: 1px solid rgba(183, 76, 57, .24); border-bottom: 1px solid rgba(183, 76, 57, .24); background: var(--paper-bright); transform: skewY(40deg) rotate(45deg); }
+.hero-school { display: inline-flex; margin: 0 0 25px; padding: 8px 17px; color: var(--coral-dark); border: 1px solid rgba(183, 76, 57, .25); border-radius: 999px; background: rgba(232, 120, 99, .07); font-family: var(--mono); font-size: 12px; letter-spacing: .03em; }
+.coral { color: var(--coral); }
+.hero-title { max-width: 820px; margin: 0; color: var(--ink); font-size: clamp(58px, 6.1vw, 88px); font-weight: 700; letter-spacing: -.065em; line-height: .98; }
+.hero-title em, h2 em { color: var(--coral); font-family: var(--serif); font-weight: 500; letter-spacing: -.055em; }
+.hero-subhead { max-width: 650px; margin: 20px 0 0; color: #5f5c55; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.7; }
+.hero-intro { max-width: 520px; margin: 13px auto 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 29px; }
+.button { display: inline-flex; min-height: 49px; align-items: center; justify-content: center; gap: 16px; padding: 0 20px; border-radius: 999px; color: var(--paper-bright); font-size: 12px; font-weight: 600; text-decoration: none; transition: transform .24s ease, background .24s ease, border-color .24s ease, box-shadow .24s ease; }
+.button-primary { color: var(--night); background: var(--coral); }
+.button-primary:hover { color: var(--paper-bright); background: var(--coral-dark); transform: translateY(-2px); }
+.hero-panel .button-primary { color: var(--paper-bright); background: var(--coral-dark); box-shadow: 0 8px 22px rgba(183, 76, 57, .16); }
+.hero-panel .button-primary:hover { background: var(--ink); box-shadow: 0 10px 24px rgba(25, 25, 22, .12); }
+.button-quiet { color: var(--ink); border: 1px solid rgba(25, 25, 22, .22); background: rgba(250, 248, 243, .55); }
+.button-quiet:hover { border-color: var(--coral-dark); background: var(--paper-bright); transform: translateY(-2px); }
+.button span { font-size: 17px; }
+.hero-note { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .085em; text-transform: uppercase; }
+.hero-note .status-light { background: var(--coral-dark); box-shadow: 0 0 0 4px rgba(183, 76, 57, .12); }
+.hero-visual { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; place-items: center; isolation: isolate; opacity: .42; pointer-events: none; }
+.hero-visual::before { position: absolute; z-index: -2; top: 28%; left: 50%; width: min(76vw, 880px); aspect-ratio: 1; border: 1px solid rgba(183, 76, 57, .08); border-radius: 50%; content: ""; transform: translate(-50%, -50%); }
+.hero-visual::after { position: absolute; z-index: -3; top: 28%; left: 50%; width: min(92vw, 1080px); aspect-ratio: 1; border: 1px solid rgba(192, 132, 103, .09); border-radius: 50%; content: ""; transform: translate(-50%, -50%); }
+.visual-halo { position: absolute; z-index: -4; top: 28%; left: 50%; width: min(90vw, 1000px); height: min(90vw, 1000px); border-radius: 50%; background: radial-gradient(circle, rgba(232, 120, 99, .13), rgba(220, 159, 122, .055) 42%, transparent 72%); filter: blur(15px); transform: translate(-50%, -50%); }
+#orb-canvas, .webgl-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
+#orb-canvas[hidden] { display: none; }
+.visual-orbit { position: absolute; top: 28%; left: 50%; z-index: -1; border: 1px solid rgba(183, 76, 57, .2); border-radius: 50%; pointer-events: none; }
+.orbit-one { width: min(69vw, 790px); height: min(29vw, 330px); transform: translate(-50%, -50%) rotate(-31deg); }
+.orbit-two { width: min(56vw, 650px); height: min(23vw, 270px); border-color: rgba(192, 132, 103, .24); transform: translate(-50%, -50%) rotate(53deg); }
+.visual-card, .visual-cross, .hero-bottom, .hero-side { display: none; }
+.scroll-cue { position: absolute; bottom: 40px; left: 0; display: inline-flex; align-items: center; gap: 12px; color: #817b70; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-decoration: none; }
+.scroll-line { width: 32px; height: 1px; background: var(--coral); transition: width .2s ease; }
+.scroll-cue:hover .scroll-line { width: 48px; }
 
-    --cyan-tint: rgba(34, 211, 238, 0.07);
-    --cyan-line: rgba(34, 211, 238, 0.28);
+.ticker { overflow: hidden; color: var(--night); border-bottom: 1px solid var(--line); background: var(--coral); }
+.ticker-track { display: flex; width: max-content; align-items: center; gap: clamp(18px, 3vw, 44px); padding: 13px 0; animation: ticker 34s linear infinite; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+.ticker i { font-size: 12px; font-style: normal; }
+@keyframes ticker { to { transform: translateX(-50%); } }
 
-    --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+.section-block { padding-block: clamp(90px, 11vw, 168px); }
+.section-heading { display: flex; align-items: center; gap: 18px; margin-bottom: clamp(44px, 6vw, 84px); }
+.section-index, .section-aside { color: var(--muted); font-size: 9px; text-transform: uppercase; white-space: nowrap; }
+.section-line { width: 100%; height: 1px; background: var(--line); }
+.section-aside { color: #969187; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .85fr); align-items: start; gap: 10%; }
+.about-grid h2, .path-intro h2, .skills-intro h2 { margin: 0; font-size: clamp(47px, 5.1vw, 82px); font-weight: 500; letter-spacing: -.07em; line-height: .99; }
+.about-grid h2 em, .path-intro h2 em, .skills-intro h2 em { color: var(--coral-dark); }
+.about-body { max-width: 570px; padding-top: 5px; }
+.about-copy p { margin: 0 0 18px; color: #5f5c55; font-size: clamp(15px, 1.1vw, 17px); line-height: 1.85; }
+.fact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); }
+.fact-row > div { display: grid; gap: 5px; align-content: start; }
+.fact-label { color: var(--coral-dark); font-size: 8px; }
+.fact-row strong { font-size: 13px; font-weight: 600; }
+.fact-row small { color: var(--muted); font-size: 11px; }
 
-    --nav-h: 64px;
-    --pad: clamp(16px, 4vw, 32px);
+.work { padding-top: 20px; }
+.work-title-row { display: flex; align-items: end; justify-content: space-between; gap: 28px; }
+.work-title-row h2 { margin: 0; font-size: clamp(53px, 6vw, 92px); font-weight: 500; letter-spacing: -.075em; line-height: .98; }
+.work-title-row h2 em { color: var(--coral-dark); }
+.work-count { padding-bottom: 8px; color: var(--muted); font-size: 9px; white-space: nowrap; }
+.work-intro { max-width: 590px; margin: 25px 0 54px; color: #706c64; font-size: 15px; line-height: 1.8; }
+.project-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 24px; }
+.project-card:only-child { grid-column: 1 / -1; width: calc(50% - 12px); justify-self: center; }
+.project-card { position: relative; display: grid; min-width: 0; grid-template-rows: auto 1fr; overflow: hidden; border: 1px solid rgba(31, 29, 24, .11); border-radius: clamp(17px, 1vw, 28px); background: var(--paper-bright); transform-style: preserve-3d; transition: box-shadow .35s ease, transform .25s ease; }
+.project-card:hover { box-shadow: 0 28px 72px rgba(48, 37, 24, .11); }
+.project-card::after { position: absolute; z-index: 1; inset: 0; pointer-events: none; content: ""; opacity: 0; background: radial-gradient(500px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(232, 120, 99, .08), transparent 42%); transition: opacity .3s ease; }
+.project-card:hover::after { opacity: 1; }
+.project-art { position: relative; z-index: 2; display: block; overflow: hidden; min-width: 0; min-height: 0; height: auto; aspect-ratio: 1.85 / 1; background: #ded5c7; flex: 0 0 auto; }
+.project-art img { width: 100%; height: 100%; object-fit: cover; transition: transform .75s cubic-bezier(.2, .65, .25, 1); }
+.project-card:hover .project-art img { transform: scale(1.035); }
+.art-open { position: absolute; right: 22px; bottom: 21px; display: grid; width: 42px; height: 42px; place-items: center; color: var(--night); border: 1px solid rgba(20, 19, 17, .22); border-radius: 50%; background: rgba(250, 248, 243, .84); font-size: 18px; transition: color .2s ease, background .2s ease, transform .2s ease; }
+.project-card:hover .art-open { color: var(--paper-bright); border-color: var(--coral); background: var(--coral); transform: rotate(45deg); }
+.project-info { position: relative; z-index: 2; display: flex; min-width: 0; flex: 1; flex-direction: column; padding: clamp(23px, 3vw, 42px); }
+.project-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #817b70; font-size: 8px; line-height: 1.5; }
+.project-status { display: inline-flex; align-items: center; gap: 6px; color: #767369; font-size: 7px; white-space: nowrap; }
+.project-status i { width: 5px; height: 5px; border-radius: 50%; background: var(--coral); }
+.project-info h3 { margin: 22px 0 12px; font-size: clamp(23px, 2.6vw, 34px); font-weight: 600; letter-spacing: -.045em; line-height: 1.13; }
+.project-info p { margin: 0; color: #514d46; font-size: 14px; line-height: 1.8; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 24px; }
+.tag-row span { padding: 6px 9px; color: #5d5a54; border: 1px solid rgba(31, 29, 24, .14); border-radius: 999px; font-size: 9px; line-height: 1.2; }
+.project-actions { margin-top: auto; padding-top: 25px; }
+.project-link { display: inline-flex; align-items: center; gap: 12px; width: fit-content; padding: 10px 15px; color: var(--ink); border: 1px solid rgba(31, 29, 24, .18); border-radius: 999px; background: transparent; font-size: 11px; font-weight: 700; text-decoration: none; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.project-link span { color: var(--coral-dark); font-size: 16px; transition: transform .2s ease; }
+.project-link:hover { color: var(--paper-bright); border-color: var(--coral-dark); background: var(--coral-dark); transform: translateY(-1px); }
+.project-link:hover span { color: var(--paper-bright); transform: translate(3px, -3px); }
+.project-highlights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 22px; margin: 24px 0 0; padding: 0; list-style: none; }
+.project-highlights li { position: relative; padding-left: 15px; color: #514d46; font-size: 13px; line-height: 1.6; }
+.project-highlights li::before { position: absolute; top: .57em; left: 0; width: 6px; height: 6px; border-radius: 50%; content: ""; background: var(--coral); }
 
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
+.certifications { padding-top: 20px; }
+.certification-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.credential-card { display: grid; min-width: 0; grid-template-rows: auto 1fr; border: 1px solid rgba(31, 29, 24, .11); background: var(--paper-bright); transition: box-shadow .3s ease, transform .3s ease; }
+.credential-card:hover { box-shadow: 0 24px 62px rgba(48, 37, 24, .1); transform: translateY(-4px); }
+.credential-art { position: relative; overflow: hidden; aspect-ratio: 1.85 / 1; background: #dfd7c9; }
+.credential-art img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s ease; }
+.credential-card:hover .credential-art img { transform: scale(1.035); }
+.credential-number { position: absolute; top: 15px; left: 16px; display: grid; width: 32px; height: 32px; place-items: center; color: var(--paper-bright); border: 1px solid rgba(250, 248, 243, .55); border-radius: 50%; background: rgba(25, 25, 22, .58); font-size: 8px; }
+.credential-info { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(22px, 3vw, 36px); }
+.credential-info h3 { margin: 19px 0 5px; font-size: clamp(20px, 2.2vw, 29px); font-weight: 600; letter-spacing: -.04em; line-height: 1.16; }
+.credential-info > p:not(.credential-issuer) { margin: 9px 0 0; color: #67635b; font-size: 12px; line-height: 1.75; }
+.credential-issuer { margin: 0; color: var(--coral-dark); font-size: 11px; font-weight: 600; }
+.credential-link { display: inline-flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 23px; color: var(--ink); font-size: 11px; font-weight: 700; text-decoration: none; }
+.credential-link span { color: var(--coral-dark); font-size: 16px; transition: transform .2s ease; }
+.credential-link:hover { color: var(--coral-dark); }
+.credential-link:hover span { transform: translate(3px, -3px); }
 
-  * { box-sizing: border-box; margin: 0; }
-  html { color-scheme: dark; scroll-padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 12px); }
-  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-  body {
-    min-height: 100svh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  a { color: inherit; }
-  :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
+.path { padding-top: 35px; }
+.path-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 12%; }
+.path-intro h2 { font-size: clamp(47px, 4.9vw, 76px); }
+.path-intro p { max-width: 310px; margin-top: 24px; color: #706c64; font-size: 14px; line-height: 1.75; }
+.path-list { border-top: 1px solid var(--line); }
+.path-item { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 18px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.path-marker { display: grid; width: 34px; height: 34px; place-items: center; color: var(--coral-dark); border: 1px solid rgba(183, 76, 57, .33); border-radius: 50%; font-family: var(--mono); font-size: 9px; }
+.path-label { color: var(--muted); font-size: 8px; }
+.path-item h3 { margin: 8px 0 1px; font-size: 21px; font-weight: 600; letter-spacing: -.035em; }
+.path-item strong { color: var(--coral-dark); font-size: 12px; font-weight: 600; }
+.path-item p { max-width: 520px; margin: 9px 0 0; color: #706c64; font-size: 12px; line-height: 1.7; }
+.path-arrow { align-self: center; color: #99938a; font-size: 18px; }
 
-  .wrap { width: min(100% - 2 * var(--pad), 1024px); margin-inline: auto; }
+.skills { padding-top: 30px; }
+.skills-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 12%; }
+.skills-intro h2 { font-size: clamp(48px, 5vw, 78px); }
+.skills-note { max-width: 365px; margin: 25px 0 23px; color: #706c64; font-size: 14px; line-height: 1.75; }
+.text-link { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-size: 11px; font-weight: 700; text-decoration: none; }
+.text-link span { color: var(--coral-dark); font-size: 16px; }
+.text-link:hover { color: var(--coral-dark); }
+.skill-groups { border-top: 1px solid var(--line); }
+.skill-group { display: grid; grid-template-columns: 42px 1fr; gap: 20px; padding: 25px 0 28px; border-bottom: 1px solid var(--line); }
+.skill-number { padding-top: 4px; color: var(--coral-dark); font-size: 9px; }
+.skill-group h3 { margin: 0 0 15px; font-size: 14px; font-weight: 600; }
+.skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-chips span { padding: 8px 11px; border: 1px solid rgba(31, 29, 24, .18); border-radius: 999px; color: #625e57; font-size: 10px; }
+.skill-chips .learning { color: var(--coral-dark); border-color: rgba(183, 76, 57, .34); background: rgba(232, 120, 99, .045); }
 
-  /* ---------- 3D background (fixed behind everything) ---------- */
-  #bg {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: -2;
-    opacity: 0.9;
-  }
-  #bg[hidden] { display: none; }
-  .glow {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background:
-      radial-gradient(60vw 45vh at 50% 58%, rgba(56, 189, 248, 0.08), transparent 70%),
-      radial-gradient(40vw 40vh at 82% 18%, rgba(139, 124, 246, 0.10), transparent 70%);
-  }
+.contact { position: relative; overflow: hidden; padding-top: clamp(86px, 11vw, 150px); padding-bottom: 40px; color: var(--ink); background: var(--paper); }
+.contact::before { position: absolute; top: -220px; right: -90px; width: 600px; height: 600px; border: 1px solid rgba(183, 76, 57, .12); border-radius: 50%; content: ""; box-shadow: 0 0 0 65px rgba(183, 76, 57, .025), 0 0 0 130px rgba(183, 76, 57, .018); pointer-events: none; }
+.contact-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+.contact h2 { position: relative; margin: 0; font-size: clamp(54px, 7.1vw, 106px); font-weight: 500; letter-spacing: -.075em; line-height: .98; }
+.contact h2 em { color: var(--coral-dark); }
+.contact-bottom { display: block; margin-top: clamp(30px, 4vw, 50px); }
+.contact-bottom p { max-width: 620px; margin: 0; color: #5f5c55; font-size: 14px; line-height: 1.8; }
+.contact-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 29px; }
+.contact-card { position: relative; display: flex; min-width: 0; min-height: 154px; flex-direction: column; align-items: flex-start; justify-content: center; padding: 25px 55px 24px 25px; color: var(--ink); border: 1px solid rgba(31, 29, 24, .13); border-radius: clamp(16px, 1vw, 28px); background: var(--paper-bright); text-decoration: none; transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease; }
+.contact-card:hover { border-color: rgba(183, 76, 57, .55); background: #fffdf9; box-shadow: 0 18px 45px rgba(48, 37, 24, .08); transform: translateY(-3px); }
+.contact-card-label { margin-bottom: 11px; color: var(--coral-dark); font-size: 8px; }
+.contact-card strong { overflow-wrap: anywhere; font-size: clamp(16px, 1.5vw, 21px); font-weight: 600; letter-spacing: -.025em; line-height: 1.25; }
+.contact-card-detail { margin-top: 8px; color: var(--muted); font-size: 10px; overflow-wrap: anywhere; }
+.contact-card-arrow { position: absolute; top: 25px; right: 24px; color: var(--coral-dark); font-size: 20px; transition: transform .2s ease; }
+.contact-card:hover .contact-card-arrow { transform: translate(3px, -3px); }
+.contact-email { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; max-width: 580px; justify-self: end; padding-bottom: 12px; color: var(--ink); border-bottom: 1px solid rgba(25, 25, 22, .35); font-size: clamp(19px, 3vw, 34px); letter-spacing: -.04em; text-decoration: none; }
+.contact-email span { color: var(--coral); font-size: 21px; transition: transform .2s ease; }
+.contact-email:hover { border-color: var(--coral); }
+.contact-email:hover span { transform: translate(4px, -4px); }
+.contact-socials { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; padding-top: 24px; }
+.social-link, .social-location { color: #6d685f; font-size: 8px; text-decoration: none; }
+.social-link { display: inline-flex; gap: 8px; align-items: center; }
+.social-link span { color: var(--coral); font-size: 14px; }
+.social-link:hover { color: var(--ink); }
+.social-location { margin-left: auto; }
+.footer { display: flex; min-height: 90px; align-items: center; justify-content: space-between; gap: 20px; color: #817c72; }
+.footer .wordmark { color: var(--ink); }
+.footer > span:nth-child(2) { font-family: var(--serif); font-size: 13px; font-style: italic; }
+.footer .mono { font-size: 8px; }
 
-  /* ---------- Navigation ---------- */
-  .nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 50;
-    padding-top: env(safe-area-inset-top, 0px);
-    background: rgba(5, 7, 15, 0.62);
-    border-bottom: 1px solid var(--line);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-  }
-  .nav-in {
-    width: min(100% - 2 * var(--pad), 1024px);
-    height: var(--nav-h);
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 800;
-    font-size: 1.15rem;
-    letter-spacing: -0.02em;
-    text-decoration: none;
-  }
-  .ver {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--cyan);
-    padding: 0.35rem 0.6rem;
-    border-radius: 999px;
-    border: 1px solid var(--cyan-line);
-    background: var(--cyan-tint);
-  }
-  .links { display: flex; gap: 4px; }
-  .links a {
-    position: relative;
-    padding: 0.5rem 0.85rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--muted);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: color 0.15s ease;
-  }
-  .links a:hover { color: var(--text); }
-  .links a[aria-current="true"] { color: var(--text); }
-  .links a[aria-current="true"]::after {
-    content: "";
-    position: absolute;
-    left: 0.85rem; right: 0.85rem; bottom: 2px;
-    height: 2px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--cyan), var(--violet));
-  }
-  .menu-btn {
-    display: none;
-    font: 600 0.95rem var(--font);
-    color: var(--text);
-    background: var(--surface-2);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 0.6rem 1rem;
-    min-height: 44px;
-    cursor: pointer;
-  }
+.motion-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .65, .25, 1); }
+.motion-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
+.motion-ready .project-card:nth-child(2) { transition-delay: .07s; }
+.motion-ready .project-card:nth-child(3) { transition-delay: .14s; }
 
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: calc(var(--nav-h) + clamp(28px, 5vw, 48px)) var(--pad) clamp(40px, 6vw, 64px);
-  }
-  .avatar-wrap {
-    position: relative;
-    z-index: 2;
-    width: 200px;
-    height: 200px;
-    margin-bottom: -46px;
-    pointer-events: none;
-    animation: pop 0.7s 0.45s cubic-bezier(0.3, 1.5, 0.5, 1) both;
-  }
-  .avatar-wrap[hidden] { display: none; }
-  #avatar { width: 100%; height: 100%; display: block; }
-  .bubble {
-    position: absolute;
-    left: calc(100% - 30px);
-    top: 34px;
-    width: max-content;
-    max-width: 210px;
-    padding: 0.6rem 0.95rem;
-    border-radius: 14px;
-    background: rgba(17, 22, 38, 0.96);
-    border: 1px solid var(--cyan-line);
-    font-size: 0.9rem;
-    font-weight: 600;
-    line-height: 1.35;
-    transform-origin: left center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-    animation: say 0.35s 1.15s cubic-bezier(0.3, 1.4, 0.5, 1) both;
-  }
-  .bubble::before {
-    content: "";
-    position: absolute;
-    left: -6px; top: 50%;
-    width: 10px; height: 10px;
-    margin-top: -5px;
-    background: inherit;
-    border-left: 1px solid var(--cyan-line);
-    border-bottom: 1px solid var(--cyan-line);
-    transform: rotate(45deg);
-  }
-  .hero-card {
-    position: relative;
-    width: min(100%, 1024px);
-    padding: 78px clamp(20px, 5vw, 56px) 48px;
-    text-align: center;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 28px;
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.03);
-    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  }
-  .chips { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .chip {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    line-height: 1.5;
-    color: var(--cyan);
-    padding: 0.45rem 1.1rem;
-    border-radius: 999px;
-    border: 1px solid var(--cyan-line);
-    background: var(--cyan-tint);
-  }
-  h1 {
-    margin-top: 24px;
-    font-size: clamp(2.5rem, 7vw, 4.25rem);
-    font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.05;
-  }
-  .name {
-    background: linear-gradient(90deg, var(--cyan) 0%, var(--blue) 40%, var(--violet) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-  .tagline {
-    margin-top: 14px;
-    font-size: clamp(1.1rem, 2.6vw, 1.6rem);
-    font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: -0.015em;
-    text-wrap: balance;
-  }
-  .lede {
-    margin: 18px auto 0;
-    max-width: 46rem;
-    color: var(--muted);
-    font-size: clamp(0.98rem, 1.9vw, 1.2rem);
-    line-height: 1.65;
-    text-wrap: pretty;
-  }
-  .actions { margin-top: 44px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+@media (min-width: 1900px) {
+  :root { --page-max: 1760px; --gutter: clamp(90px, 7vw, 180px); }
+  body { font-size: 18px; }
+  .hero-inner { min-height: min(1120px, 94svh); min-height: max(980px, min(1120px, 94svh)); }
+  .hero-panel { width: min(68%, 1180px); margin: 150px 0 0; padding-top: 70px; }
+  .hero-identity { top: 48%; right: 3.5%; left: auto; width: clamp(270px, 16vw, 400px); height: auto; transform: translateY(-50%); }
+  .hero-avatar { width: 100%; height: auto; }
+  .hero-title { font-size: clamp(122px, 6.3vw, 172px); }
+  .hero-visual::before { width: min(72vw, 1250px); }
+  .hero-visual::after { width: min(88vw, 1460px); }
+  .visual-halo { width: min(86vw, 1400px); height: min(86vw, 1400px); }
+  .project-info p { font-size: 15px; }
+  .project-highlights li { font-size: 19px; }
+  .tag-row span { font-size: 10px; }
+}
+@media (min-width: 3600px) {
+  :root { --page-max: 2680px; --gutter: clamp(160px, 8vw, 500px); }
+  body { font-size: 24px; }
+  .topbar { padding-top: 38px; padding-bottom: 38px; }
+  .wordmark { font-size: 20px; }
+  .wordmark-mark { width: 42px; height: 42px; }
+  .nav a { font-size: 17px; }
+  .hero-inner { min-height: max(1900px, 88svh); padding-top: 160px; padding-bottom: 130px; }
+  .hero-panel { width: min(66%, 1760px); margin: 210px 0 0; padding: 120px 30px 76px 0; }
+  .hero-identity { top: 48%; right: 4%; left: auto; width: clamp(350px, 15vw, 520px); height: auto; transform: translateY(-50%); }
+  .hero-avatar { width: 100%; height: auto; }
+  .speech-bubble { max-width: 400px; padding: 22px 26px; font-size: 22px; }
+  .hero-school { margin-bottom: 40px; padding: 13px 25px; font-size: 19px; }
+  .hero-title { font-size: clamp(190px, 4.5vw, 280px); }
+  .hero-subhead { max-width: 1100px; font-size: 28px; }
+  .hero-intro { max-width: 1100px; font-size: 26px; }
+  .hero-note { font-size: 16px; }
+  .button { min-height: 72px; padding-inline: 28px; font-size: 17px; }
+  .hero-visual::before { width: min(70vw, 2200px); }
+  .hero-visual::after { width: min(88vw, 2800px); }
+  .visual-halo { width: min(86vw, 2600px); height: min(86vw, 2600px); }
+  .orbit-one { width: min(69vw, 2000px); height: min(29vw, 900px); }
+  .orbit-two { width: min(56vw, 1700px); height: min(23vw, 760px); }
+  .section-index, .section-aside, .project-meta { font-size: 13px; }
+  .about-grid h2, .path-intro h2, .skills-intro h2 { font-size: clamp(130px, 4.3vw, 200px); }
+  .about-copy p, .work-intro { font-size: 24px; }
+  .fact-row strong { font-size: 20px; }
+  .fact-row small { font-size: 16px; }
+  .work-title-row h2 { font-size: clamp(145px, 4.7vw, 225px); }
+  .project-info { padding: clamp(28px, 2vw, 46px); }
+  .project-info h3 { font-size: clamp(30px, 1.5vw, 42px); }
+  .project-info p { font-size: clamp(16px, .55vw, 21px); }
+  .tag-row span, .project-link { font-size: 13px; }
+  .path-item h3 { font-size: 34px; }
+  .path-item p, .path-item strong, .skills-note { font-size: 20px; }
+  .skill-group h3 { font-size: 23px; }
+  .skill-chips span { padding: 12px 17px; font-size: 16px; }
+  .contact h2 { font-size: clamp(170px, 5.6vw, 280px); }
+  .contact-bottom p { font-size: 22px; }
+  .contact-card { min-height: 225px; padding: 35px 75px 32px 35px; }
+  .contact-card-label { font-size: 13px; }
+  .contact-card strong { font-size: 28px; }
+  .contact-card-detail { font-size: 16px; }
+  .contact-card-arrow { top: 34px; right: 34px; font-size: 27px; }
+  .contact-email { font-size: 48px; }
+  .contact-socials a, .social-location, .footer .mono { font-size: 13px; }
+  .footer { min-height: 140px; }
+}
 
-  /* ---------- Buttons (shared by hero and contact) ---------- */
-  .btn {
-    display: inline-block;
-    font: 600 1rem var(--font);
-    line-height: 1.4;
-    padding: 1.05rem 2rem;
-    border-radius: 12px;
-    text-decoration: none;
-    color: var(--text);
-    background: var(--surface-2);
-    border: 1px solid #1f2841;
-    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-  }
-  .btn:hover { transform: translateY(-2px); border-color: var(--line-2); }
-  .btn.primary {
-    color: #03131f;
-    border-color: transparent;
-    background: linear-gradient(90deg, #06e6ff, var(--blue));
-    box-shadow: 0 0 32px rgba(34, 211, 238, 0.4);
-  }
-  .btn.primary:hover { box-shadow: 0 0 46px rgba(34, 211, 238, 0.6); }
+@media (max-width: 1050px) {
+  :root { --gutter: 38px; }
+  .hero-inner { min-height: 760px; justify-content: center; }
+  .hero-panel { width: min(100%, 920px); margin: 185px auto 0; padding: 56px clamp(24px, 5.5vw, 78px) 39px; border: 1px solid rgba(30, 29, 26, .12); border-radius: 28px; background: rgba(250, 248, 243, .82); box-shadow: 0 28px 90px rgba(48, 37, 24, .08), inset 0 1px rgba(255, 255, 255, .8); text-align: center; backdrop-filter: blur(14px); }
+  .hero-identity { top: 125px; right: auto; left: 50%; width: 160px; height: 160px; transform: translateX(-50%); }
+  .hero-avatar { width: 150px; height: 150px; }
+  .speech-bubble { top: 7%; left: 50%; transform: translate(-50%, -35%); }
+  .hero-title { max-width: 900px; margin-inline: auto; font-size: clamp(58px, 7.3vw, 82px); }
+  .hero-subhead { margin-inline: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-note { justify-content: center; }
+  .about-grid { gap: 7%; }
+  .path-layout, .skills-layout { gap: 8%; }
+  .project-card { border-radius: 17px; }
+}
+@media (max-width: 820px) {
+  :root { --gutter: 28px; }
+  .topbar { padding-block: 17px; }
+  .menu-toggle { z-index: 25; display: grid; width: 42px; height: 42px; align-content: center; justify-items: center; gap: 6px; padding: 0; color: var(--ink); border: 1px solid rgba(25, 25, 22, .25); background: transparent; cursor: pointer; }
+  .menu-toggle span { width: 17px; height: 1px; background: currentColor; transition: transform .2s ease; }
+  .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+  .nav { position: absolute; top: 100%; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px var(--gutter) 22px; border-top: 1px solid var(--line); background: var(--paper); box-shadow: 0 18px 32px rgba(48, 37, 24, .08); }
+  .nav.is-open { display: flex; flex-direction: column; }
+  .nav a { width: fit-content; padding: 12px 0; font-size: 14px; }
+  .nav a::after { bottom: 6px; }
+  .nav .nav-contact { margin-top: 10px; padding: 12px 14px; }
+  .hero-inner { min-height: 805px; padding-top: 105px; padding-bottom: 62px; }
+  .hero-copy { max-width: none; padding: 0; }
+  .hero-panel { margin-top: 147px; padding: 52px 35px 32px; }
+  .hero-title { font-size: clamp(58px, 9vw, 78px); }
+  .hero-subhead { font-size: 15px; }
+  .hero-visual { width: 100%; margin: 0; }
+  .hero-identity { top: 95px; width: 144px; height: 144px; }
+  .hero-avatar { width: 135px; height: 135px; }
+  .hero-note { margin-top: 25px; }
+  .scroll-cue { bottom: 28px; }
+  .hero-side { bottom: 31px; }
+  .about-grid, .path-layout, .skills-layout { grid-template-columns: 1fr; gap: 42px; }
+  .about-body { max-width: 720px; }
+  .certification-list { gap: 18px; }
+  .contact-links { gap: 9px; }
+  .contact-card { padding-inline: 17px 43px; }
+  .contact-card-arrow { right: 16px; }
+  .path-intro p { max-width: 560px; }
+  .contact-bottom { grid-template-columns: 1fr; gap: 25px; }
+  .contact-email { justify-self: start; }
+}
+@media (max-width: 600px) {
+  :root { --gutter: 21px; }
+  html { scroll-padding-top: 72px; }
+  .hero-inner { min-height: 765px; padding-top: 94px; padding-bottom: 62px; }
+  .eyebrow { gap: 9px; margin-bottom: 24px; font-size: 8px; }
+  .hero-hello { font-size: 18px; }
+  .hero-panel { margin-top: 138px; padding: 47px 17px 25px; border-radius: 19px; }
+  .hero-identity { top: 78px; width: 118px; height: 118px; }
+  .hero-avatar { width: 110px; height: 110px; }
+  .speech-bubble { top: 7%; left: 50%; max-width: min(260px, calc(100vw - 32px)); padding: 10px 14px; font-size: 11px; transform: translate(-50%, -35%); }
+  .hero-title { font-size: clamp(42px, 11.5vw, 62px); letter-spacing: -.07em; }
+  .hero-subhead { margin-top: 14px; font-size: 13px; }
+  .hero-intro { margin-top: 12px; font-size: 12px; }
+  .hero-actions { gap: 9px; margin-top: 24px; }
+  .button { min-height: 45px; gap: 13px; padding-inline: 13px; font-size: 11px; }
+  .hero-note { flex-wrap: wrap; gap: 9px; margin-top: 22px; font-size: 7px; }
+  .hero-visual { width: 100%; margin: 0; }
+  .hero-visual::before { width: min(96vw, 400px); }
+  .hero-visual::after { width: min(118vw, 500px); }
+  .visual-halo { width: min(112vw, 480px); height: min(112vw, 480px); }
+  .orbit-one { width: min(88vw, 360px); height: min(37vw, 155px); }
+  .orbit-two { width: min(75vw, 310px); height: min(31vw, 128px); }
+  .hero-side { display: none; }
+  .ticker-track { gap: 17px; padding: 11px 0; font-size: 8px; }
+  .section-block { padding-block: 78px; }
+  .section-heading { gap: 10px; margin-bottom: 38px; }
+  .section-index, .section-aside { font-size: 7px; letter-spacing: .04em; }
+  .section-aside { display: none; }
+  .about-grid, .path-layout, .skills-layout { gap: 29px; }
+  .about-grid h2, .path-intro h2, .skills-intro h2 { font-size: clamp(43px, 11.5vw, 62px); }
+  .about-copy p { margin-bottom: 14px; font-size: 14px; }
+  .fact-row { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; padding-top: 18px; }
+  .fact-row strong { font-size: 12px; }
+  .work { padding-top: 10px; }
+  .work-title-row { align-items: end; gap: 10px; }
+  .work-title-row h2 { font-size: clamp(43px, 11.5vw, 66px); }
+  .work-count { padding-bottom: 4px; font-size: 7px; }
+  .work-intro { margin: 18px 0 31px; font-size: 13px; }
+  .project-list { grid-template-columns: 1fr; gap: 17px; }
+  .project-card:only-child { grid-column: auto; width: auto; justify-self: stretch; }
+  .project-art { aspect-ratio: 1.85 / 1; }
+  .project-info { padding: 22px; }
+  .project-meta { align-items: flex-start; font-size: 7px; }
+  .project-status { font-size: 6px; }
+  .project-info h3 { margin-top: 17px; font-size: 25px; }
+  .project-info p { font-size: 13px; }
+  .project-highlights { grid-template-columns: 1fr; gap: 7px; margin-top: 18px; }
+  .project-highlights li { font-size: 12px; }
+  .tag-row { gap: 6px; margin-top: 18px; }
+  .tag-row span { font-size: 8px; }
+  .path { padding-top: 0; }
+  .certifications { padding-top: 0; }
+  .certification-list { grid-template-columns: 1fr; gap: 16px; }
+  .credential-info { padding: 21px; }
+  .credential-info h3 { font-size: 23px; }
+  .credential-info > p:not(.credential-issuer) { font-size: 11px; }
+  .path-item { grid-template-columns: 34px minmax(0, 1fr) auto; gap: 12px; padding: 22px 0; }
+  .path-marker { width: 29px; height: 29px; font-size: 8px; }
+  .path-item h3 { font-size: 18px; }
+  .path-item p { font-size: 11px; }
+  .skills { padding-top: 0; }
+  .skills-note { margin: 16px 0 18px; font-size: 13px; }
+  .skill-group { grid-template-columns: 27px 1fr; gap: 11px; padding: 19px 0 21px; }
+  .skill-group h3 { margin-bottom: 12px; font-size: 13px; }
+  .skill-chips { gap: 6px; }
+  .skill-chips span { padding: 7px 9px; font-size: 9px; }
+  .contact { padding-top: 78px; padding-bottom: 28px; }
+  .contact::before { top: -80px; right: -250px; width: 420px; height: 420px; }
+  .contact-kicker { margin-bottom: 22px; font-size: 8px; }
+  .contact h2 { font-size: clamp(44px, 12vw, 68px); }
+  .contact-bottom { margin-top: 24px; }
+  .contact-bottom p { font-size: 13px; }
+  .contact-links { grid-template-columns: 1fr; gap: 9px; margin-top: 20px; }
+  .contact-card { min-height: 111px; padding: 17px 52px 16px 17px; }
+  .contact-card-label { margin-bottom: 7px; font-size: 7px; }
+  .contact-card strong { font-size: 16px; }
+  .contact-card-detail { margin-top: 4px; font-size: 9px; }
+  .contact-card-arrow { top: 19px; right: 17px; font-size: 17px; }
+  .contact-socials { gap: 18px; padding-top: 19px; }
+  .social-link, .social-location { font-size: 7px; }
+  .social-location { width: 100%; margin: 3px 0 0; }
+  .footer { min-height: 82px; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-block: 18px; }
+  .footer > span:nth-child(2) { order: 3; width: 100%; font-size: 12px; }
+  .footer .mono { font-size: 7px; }
+}
+@media (min-width: 821px) { .nav { display: flex !important; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .motion-ready .reveal { opacity: 1; transform: none; }
+}
 
-  .status {
-    margin-top: 32px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.92rem;
-    color: var(--muted);
-  }
-  .status::before, .state::before {
-    content: "";
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 10px rgba(52, 211, 153, 0.7);
-  }
-
-  /* ---------- Sections ---------- */
-  .section { padding: clamp(64px, 9vw, 112px) 0; }
-  h2 {
-    font-size: clamp(1.9rem, 4.2vw, 2.75rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: clamp(24px, 4vw, 40px);
-  }
-  h3 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3; }
-  .muted { color: var(--muted); }
-  .link {
-    display: inline-block;
-    padding: 0.5rem 0;
-    color: var(--cyan);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
-  }
-  .link:hover { color: var(--blue); }
-
-  .panel {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-  }
-
-  /* About */
-  .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(24px, 5vw, 56px); align-items: start; }
-  .about-copy { display: grid; gap: 1.1rem; max-width: 62ch; }
-  .facts { padding: clamp(20px, 3vw, 28px); display: grid; gap: 20px; }
-  .facts dt { font-size: 0.88rem; color: var(--muted); }
-  .facts dd { font-weight: 600; line-height: 1.45; margin-top: 2px; }
-
-  /* Changelog */
-  .changelog-intro { margin: -16px 0 36px; color: var(--muted); max-width: 62ch; }
-  .timeline { list-style: none; padding: 0; position: relative; display: grid; gap: 40px; }
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 5px; top: 10px; bottom: 10px;
-    width: 1px;
-    background: linear-gradient(var(--cyan), var(--violet) 70%, transparent);
-  }
-  .entry { position: relative; padding-left: 40px; }
-  .entry::before {
-    content: "";
-    position: absolute;
-    left: 0; top: 0.55rem;
-    width: 11px; height: 11px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 2px solid var(--cyan);
-  }
-  .entry:first-child::before { background: var(--cyan); box-shadow: 0 0 12px rgba(34, 211, 238, 0.7); }
-  .entry-head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .entry p { margin-top: 8px; color: var(--muted); max-width: 62ch; }
-
-  /* Work */
-  .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; }
-  .project { padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; transition: border-color 0.2s ease; }
-  .project:hover { border-color: var(--cyan-line); }
-  .state { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--muted); }
-  .project p { color: var(--muted); }
-  .tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
-  .tags li {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    padding: 0.3rem 0.8rem;
-    border-radius: 999px;
-    border: 1px solid var(--line-2);
-    color: var(--text);
-  }
-  .project .link { margin-top: auto; align-self: flex-start; }
-
-  /* Skills */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px; }
-  .skill-group { padding: clamp(22px, 3vw, 28px); }
-  .skill-group h3 { margin-bottom: 16px; }
-  .skill-group .tags { margin-top: 0; }
-  .skill-group.next .tags li { border-style: dashed; border-color: rgba(139, 124, 246, 0.6); }
-  .skill-group.next h3 { color: var(--violet); }
-
-  /* Contact */
-  .contact-copy { max-width: 62ch; color: var(--muted); }
-  .email {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 0.4rem 0;
-    font-size: clamp(1.25rem, 3.6vw, 1.9rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 2px solid var(--cyan);
-    overflow-wrap: anywhere;
-  }
-  .email:hover { color: var(--cyan); }
-  .contact-actions { margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; }
-
-  /* Footer */
-  .foot { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 0.92rem; }
-  .foot-in { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  .foot a { text-decoration: none; padding: 0.4rem 0; }
-  .foot a:hover { color: var(--text); }
-
-  /* ---------- One opening sequence: card, then avatar, then greeting ---------- */
-  @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
-  @keyframes pop  { from { opacity: 0; transform: translateY(24px) scale(0.7); } }
-  @keyframes say  { from { opacity: 0; transform: scale(0.7); } }
-  @keyframes say-center {
-    from { opacity: 0; transform: translateX(-50%) scale(0.7); }
-    to   { opacity: 1; transform: translateX(-50%) scale(1); }
-  }
-
-  /* ---------- Tablet and phone ---------- */
-  @media (max-width: 820px) {
-    .about-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 720px) {
-    .menu-btn { display: inline-flex; align-items: center; }
-    .links {
-      display: none;
-      position: absolute;
-      top: 100%; left: 0; right: 0;
-      flex-direction: column;
-      gap: 0;
-      padding: 8px var(--pad) 16px;
-      background: rgba(5, 7, 15, 0.96);
-      border-bottom: 1px solid var(--line);
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js" defer></script>
+  <script>
+/*
+ * Editable source of truth for the portfolio content.
+ * Keep personal details and URLs current here; app.js renders the page from this object.
+ */
+window.PORTFOLIO = {
+  profile: {
+    name: "Ansh",
+    location: "Delhi, India",
+    university: "Delhi University",
+    linkedinHandle: "linkedin.com/in/ansh1605/",
+    githubHandle: "github.com/anshsharma2674",
+    heroGreeting: "Heyy!! i am Ansh. What's up",
+    heroHeadline: "Computer science<br><em>student &amp; builder.</em>",
+    heroSubhead: "First-year BSc (Hons) Computer Science student at Delhi University, bridging software engineering fundamentals with enterprise data analytics.",
+    educationShort: "BSc (Hons) Computer Science · Delhi University",
+    availability: "Open to software & data internships",
+    aboutHeadline: "Learning how<br>things <em>work</em>, then<br>making them better.",
+    about: [
+      "I'm studying Computer Science through Delhi University, which means most of my learning happens outside a classroom — reading documentation, working through problems on my own, and figuring things out before asking for help. That's shaped how I work: independently, and comfortable with not knowing something yet.",
+      "Right now I'm splitting time between coursework fundamentals and hands-on practice, most recently a data analytics simulation with Deloitte and my first-semester project, a student productivity and attendance manager. I'm looking for an internship where I can keep building like that, alongside people who'll push me further."
+    ],
+    contactKicker: "Open to what’s next",
+    contactCopy: "Looking for an internship in software development or data analytics. Email is the fastest way to reach me.",
+    footerLine: "Designed with curiosity. Built with intent."
+  },
+  links: {
+    email: "ansh64515@gmail.com",
+    linkedin: "https://www.linkedin.com/in/ansh1605/",
+    github: "https://github.com/anshsharma2674",
+    source: "https://github.com/anshsharma2674/anshsharma2674.github.io"
+  },
+  contactCards: [
+    { label: "EMAIL", titleKey: "email", detail: "Start a conversation", linkKey: "email", kind: "email" },
+    { label: "LINKEDIN", title: "Connect with me", detail: "linkedin.com/in/ansh1605/", linkKey: "linkedin", kind: "linkedin" },
+    { label: "GITHUB", title: "Explore my code", detail: "github.com/anshsharma2674", linkKey: "github", kind: "github" }
+  ],
+  facts: [
+    { label: "CURRENTLY", title: "BSc (Hons) Computer Science", note: "Delhi University" },
+    { label: "OPEN TO", title: "Software & data internships", note: "Learning, building, collaborating" }
+  ],
+  projects: [
+    {
+      number: "01",
+      category: "SOFTWARE PROJECT",
+      name: "Student Productivity & Attendance Manager",
+      description: "A browser-based academic dashboard for organizing a student’s semester in one place. It tracks attendance, assignments and exam dates, marks, CGPA, and study tasks, with a 3D interface and Chart.js visualizations.",
+      highlights: ["Attendance targets by subject", "Assignments, exams, marks and CGPA", "Study tasks, alerts and quick search", "3D interface with Chart.js analytics"],
+      technologies: ["JavaScript", "Three.js", "Chart.js", "HTML & CSS"],
+      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgzMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPlN0dWRlbnQgcHJvZHVjdGl2aXR5IG1hbmFnZXIgaW50ZXJmYWNlIGlsbHVzdHJhdGlvbjwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkEgd2FybSBlZGl0b3JpYWwgaWxsdXN0cmF0aW9uIG9mIGFuIGFjYWRlbWljIGRhc2hib2FyZCB3aXRoIGF0dGVuZGFuY2UsIGFzc2lnbm1lbnRzLCBzdWJqZWN0cywgYW5kIHN0dWR5IHBsYW5uaW5nLjwvZGVzYz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZTRkNmM1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYzliOWE1Ii8+PC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icGFuZWwiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMjQyNDFmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMTQxNDExIi8+PC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9InNoYWRvdyIgeD0iLTMwJSIgeT0iLTMwJSIgd2lkdGg9IjE2MCUiIGhlaWdodD0iMTgwJSI+PGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjI0IiBzdGREZXZpYXRpb249IjI1IiBmbG9vZC1jb2xvcj0iIzM4MzAyNSIgZmxvb2Qtb3BhY2l0eT0iLjIyIi8+PC9maWx0ZXI+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgzMCIgZmlsbD0idXJsKCNiZykiLz4KICA8Y2lyY2xlIGN4PSI5OTciIGN5PSIxNDIiIHI9IjE5NSIgZmlsbD0iI2YxNzg2MyIgb3BhY2l0eT0iLjEzIi8+CiAgPGNpcmNsZSBjeD0iMTAxMCIgY3k9IjE0MyIgcj0iMjUwIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZjZmNWUiIHN0cm9rZS1vcGFjaXR5PSIuMTciLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDcgMTE2KSByb3RhdGUoLTMgNDgwIDMwMCkiIGZpbHRlcj0idXJsKCNzaGFkb3cpIj4KICAgIDxyZWN0IHdpZHRoPSI5ODIiIGhlaWdodD0iNTk4IiByeD0iMTkiIGZpbGw9IiNmOGY1ZWUiLz4KICAgIDxwYXRoIGQ9Ik0wIDE5UTAgMCAxOSAwaDk0NHExOSAwIDE5IDE5djQ5SDB6IiBmaWxsPSIjMjQyNDFmIi8+CiAgICA8Y2lyY2xlIGN4PSIyOSIgY3k9IjI1IiByPSI1IiBmaWxsPSIjZTg3ODYzIi8+PGNpcmNsZSBjeD0iNDciIGN5PSIyNSIgcj0iNSIgZmlsbD0iI2JhOWE3NyIvPjxjaXJjbGUgY3g9IjY1IiBjeT0iMjUiIHI9IjUiIGZpbGw9IiNlMGQzYmYiLz4KICAgIDxyZWN0IHg9IjI5IiB5PSI5NSIgd2lkdGg9IjE3NyIgaGVpZ2h0PSI0NzUiIHJ4PSIxMCIgZmlsbD0iI2VmZWJlMyIvPgogICAgPHRleHQgeD0iNTIiIHk9IjEzMyIgZmlsbD0iIzI1MjQxZiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI3MDAiPlNUVURZIC8gRkxPVzwvdGV4dD4KICAgIDx0ZXh0IHg9IjUyIiB5PSIxODEiIGZpbGw9IiM4YTgyNzYiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZXR0ZXItc3BhY2luZz0iMiI+WU9VUiBTUEFDRTwvdGV4dD4KICAgIDxnIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmaWxsPSIjNDU0MjNjIj4KICAgICAgPHJlY3QgeD0iNDUiIHk9IjE5OSIgd2lkdGg9IjE0NSIgaGVpZ2h0PSIzOCIgcng9IjciIGZpbGw9IiNlODc4NjMiIG9wYWNpdHk9Ii4xNiIvPjxjaXJjbGUgY3g9IjYxIiBjeT0iMjE4IiByPSI1IiBmaWxsPSIjYjc0YzM5Ii8+PHRleHQgeD0iNzYiIHk9IjIyMyI+T3ZlcnZpZXc8L3RleHQ+CiAgICAgIDxjaXJjbGUgY3g9IjYxIiBjeT0iMjY0IiByPSI1IiBmaWxsPSIjYTY5YjhjIi8+PHRleHQgeD0iNzYiIHk9IjI2OSI+QXR0ZW5kYW5jZTwvdGV4dD4KICAgICAgPGNpcmNsZSBjeD0iNjEiIGN5PSIzMTAiIHI9IjUiIGZpbGw9IiNhNjliOGMiLz48dGV4dCB4PSI3NiIgeT0iMzE1Ij5Bc3NpZ25tZW50czwvdGV4dD4KICAgICAgPGNpcmNsZSBjeD0iNjEiIGN5PSIzNTYiIHI9IjUiIGZpbGw9IiNhNjliOGMiLz48dGV4dCB4PSI3NiIgeT0iMzYxIj5FeGFtIHBsYW48L3RleHQ+CiAgICAgIDxjaXJjbGUgY3g9IjYxIiBjeT0iNDAyIiByPSI1IiBmaWxsPSIjYTY5YjhjIi8+PHRleHQgeD0iNzYiIHk9IjQwNyI+U3R1ZHkgdGFza3M8L3RleHQ+CiAgICA8L2c+CiAgICA8dGV4dCB4PSIyNDQiIHk9IjEyNiIgZmlsbD0iIzI5MjgyMiIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMzQiPllvdXIgc2VtZXN0ZXIsIGluIGZvY3VzLjwvdGV4dD4KICAgIDx0ZXh0IHg9IjI0NiIgeT0iMTU0IiBmaWxsPSIjODg4MTc1IiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCI+QSBjbGVhciB2aWV3IG9mIHdoYXQgbmVlZHMgeW91ciBhdHRlbnRpb24uPC90ZXh0PgogICAgPGc+CiAgICAgIDxyZWN0IHg9IjI0NCIgeT0iMTgyIiB3aWR0aD0iMjE0IiBoZWlnaHQ9IjEwNyIgcng9IjkiIGZpbGw9IiNmZmZkZjgiIHN0cm9rZT0iI2RlZDdjYiIvPjx0ZXh0IHg9IjI2MiIgeT0iMjEwIiBmaWxsPSIjODg4MTc1IiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGV0dGVyLXNwYWNpbmc9IjEuNSI+QVRURU5EQU5DRTwvdGV4dD4KICAgICAgPHJlY3QgeD0iMjYzIiB5PSIyMzEiIHdpZHRoPSIxMjMiIGhlaWdodD0iOSIgcng9IjUiIGZpbGw9IiNlN2UwZDUiLz48cmVjdCB4PSIyNjMiIHk9IjIzMSIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjkiIHJ4PSI1IiBmaWxsPSIjZTg3ODYzIi8+PHRleHQgeD0iMjYzIiB5PSIyNjYiIGZpbGw9IiM1MTRkNDUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5TdWJqZWN0cyAmYW1wOyB0YXJnZXRzPC90ZXh0PgogICAgICA8cmVjdCB4PSI0NzMiIHk9IjE4MiIgd2lkdGg9IjIxNCIgaGVpZ2h0PSIxMDciIHJ4PSI5IiBmaWxsPSIjZmZmZGY4IiBzdHJva2U9IiNkZWQ3Y2IiLz48dGV4dCB4PSI0OTEiIHk9IjIxMCIgZmlsbD0iIzg4ODE3NSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxldHRlci1zcGFjaW5nPSIxLjUiPlVQIE5FWFQ8L3RleHQ+CiAgICAgIDxjaXJjbGUgY3g9IjUwNSIgY3k9IjI0MyIgcj0iMTIiIGZpbGw9IiNlODc4NjMiIG9wYWNpdHk9Ii4xOCIvPjxwYXRoIGQ9Ik01MDEgMjQzaDhtLTQtNHY4IiBzdHJva2U9IiNiNzRjMzkiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHRleHQgeD0iNTI5IiB5PSIyNDciIGZpbGw9IiM1MTRkNDUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj5Bc3NpZ25tZW50IHJldmlldzwvdGV4dD48dGV4dCB4PSI0OTEiIHk9IjI3MiIgZmlsbD0iIzhiODM3NyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPlN0dWR5IHRhc2sgwrcgVG9kYXk8L3RleHQ+CiAgICAgIDxyZWN0IHg9IjcwMiIgeT0iMTgyIiB3aWR0aD0iMjQ1IiBoZWlnaHQ9IjEwNyIgcng9IjkiIGZpbGw9IiMyNDI0MWYiLz48dGV4dCB4PSI3MjEiIHk9IjIxMCIgZmlsbD0iI2I5YWU5ZiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxldHRlci1zcGFjaW5nPSIxLjUiPlFVSUNLIFNFQVJDSDwvdGV4dD48cmVjdCB4PSI3MjEiIHk9IjIyNiIgd2lkdGg9IjIwNyIgaGVpZ2h0PSI0MCIgcng9IjYiIGZpbGw9IiMzODM3MzAiLz48dGV4dCB4PSI3MzgiIHk9IjI1MSIgZmlsbD0iI2YxZWNlMyIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiPkZpbmQgYSBzdWJqZWN0IG9yIHRhc2s8L3RleHQ+PHRleHQgeD0iOTA4IiB5PSIyNTEiIGZpbGw9IiNlODc4NjMiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIj7ijJggSzwvdGV4dD4KICAgIDwvZz4KICAgIDxyZWN0IHg9IjI0NCIgeT0iMzEwIiB3aWR0aD0iNDM4IiBoZWlnaHQ9IjIyOSIgcng9IjEwIiBmaWxsPSIjZmZmZGY4IiBzdHJva2U9IiNkZWQ3Y2IiLz48dGV4dCB4PSIyNjUiIHk9IjM0NCIgZmlsbD0iIzM2MzQyZCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI3MDAiPlN0dWR5IHBsYW48L3RleHQ+PHRleHQgeD0iMjY1IiB5PSIzNjUiIGZpbGw9IiM4YTgyNzYiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIj5QbGFuIHRhc2tzIGFjcm9zcyB5b3VyIHdlZWs8L3RleHQ+CiAgICA8ZyBzdHJva2U9IiNlZWU4ZGQiPjxwYXRoIGQ9Ik0yNjcgNDAwaDM5MU0yNjcgNDQxaDM5MU0yNjcgNDgyaDM5MU0yNjcgNTIzaDM5MSIvPjxwYXRoIGQ9Ik0zMzAgMzgzdjE1ME0zOTcgMzgzdjE1ME00NjQgMzgzdjE1ME01MzEgMzgzdjE1ME01OTggMzgzdjE1MCIvPjwvZz4KICAgIDxnIGZpbGw9IiNkOThhNzIiPjxyZWN0IHg9IjM0MSIgeT0iNDA5IiB3aWR0aD0iOTQiIGhlaWdodD0iMTciIHJ4PSI0Ii8+PHJlY3QgeD0iNDYyIiB5PSI0NTAiIHdpZHRoPSIxMTIiIGhlaWdodD0iMTciIHJ4PSI0Ii8+PHJlY3QgeD0iMzk2IiB5PSI0OTEiIHdpZHRoPSIxMjUiIGhlaWdodD0iMTciIHJ4PSI0Ii8+PC9nPgogICAgPGcgZmlsbD0iIzVlNTk1MCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOSI+PHRleHQgeD0iMzQ3IiB5PSI0MjEiIGZpbGw9IiNmZmYiPlJlYWRpbmc8L3RleHQ+PHRleHQgeD0iNDY5IiB5PSI0NjIiIGZpbGw9IiNmZmYiPlByb2JsZW0gc2V0PC90ZXh0Pjx0ZXh0IHg9IjQwMyIgeT0iNTAzIiBmaWxsPSIjZmZmIj5SZXZpc2lvbjwvdGV4dD48L2c+CiAgICA8cmVjdCB4PSI3MDIiIHk9IjMxMCIgd2lkdGg9IjI0NSIgaGVpZ2h0PSIyMjkiIHJ4PSIxMCIgZmlsbD0iI2U5ZTJkNyIvPjx0ZXh0IHg9IjcyMyIgeT0iMzQ0IiBmaWxsPSIjMzYzNDJkIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjcwMCI+U3ViamVjdCBvdmVydmlldzwvdGV4dD48dGV4dCB4PSI3MjMiIHk9IjM2NSIgZmlsbD0iIzhhODI3NiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPkF0dGVuZGFuY2UgJmFtcDsgYWN0aXZpdHk8L3RleHQ+CiAgICA8Y2lyY2xlIGN4PSI4MjQiIGN5PSI0NTMiIHI9IjUzIiBmaWxsPSJub25lIiBzdHJva2U9IiNkNGM4YjgiIHN0cm9rZS13aWR0aD0iMTIiLz48cGF0aCBkPSJNODI0IDQwMGE1MyA1MyAwIDAgMSA0NyA3NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTg3ODYzIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48Y2lyY2xlIGN4PSI4MjQiIGN5PSI0NTMiIHI9IjMwIiBmaWxsPSIjZjdmM2ViIi8+PHBhdGggZD0iTTgxMSA0NTNoMjZNODI0IDQ0MHYyNiIgc3Ryb2tlPSIjYTM5OThjIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxyZWN0IHg9IjI0NCIgeT0iNTU0IiB3aWR0aD0iNzAzIiBoZWlnaHQ9IjEiIGZpbGw9IiNkZmQ4Y2UiLz48dGV4dCB4PSIyNDUiIHk9IjU3OSIgZmlsbD0iIzkzOGE3ZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGxldHRlci1zcGFjaW5nPSIxLjQiPkFUVEVOREFOQ0UgwrcgQVNTSUdOTUVOVFMgwrcgRVhBTVMgwrcgTUFSS1MgwrcgU1RVRFk8L3RleHQ+CiAgPC9nPgogIDx0ZXh0IHg9Ijc2IiB5PSI3NzgiIGZpbGw9IiM2NDU4NGIiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZXR0ZXItc3BhY2luZz0iMiI+U1RVREVOVCBQUk9EVUNUSVZJVFkgTUFOQUdFUiAvIElOVEVSRkFDRSBTVFVEWTwvdGV4dD4KPC9zdmc+Cg==",
+      imageAlt: "Illustrated academic dashboard showing attendance, assignments, study schedule, and subject overview panels",
+      links: [{ label: "View live project", url: "https://anshsharma2674.github.io/student-productivity-manager/" }]
     }
-    .links.open { display: flex; }
-    .links a { padding: 0.85rem 0.25rem; font-size: 1.05rem; }
-    .links a[aria-current="true"]::after { left: 0.25rem; right: auto; width: 28px; bottom: 6px; }
-  }
-  @media (max-width: 640px) {
-    .avatar-wrap { width: 170px; height: 170px; margin-top: 44px; margin-bottom: -40px; }
-    .bubble {
-      left: 50%; top: -34px;
-      transform: translateX(-50%);
-      transform-origin: center bottom;
-      text-align: center;
-      animation-name: say-center;
+  ],
+  certifications: [
+    {
+      number: "01",
+      category: "JOB SIMULATION CERTIFICATE",
+      name: "Deloitte Data Analytics Job Simulation",
+      issuer: "Deloitte · Forage",
+      description: "Worked with factory telemetry for Daikibo, created a calculated field to score downtime by equipment status, and built linked Tableau views by factory and device type.",
+      technologies: ["Tableau", "Data analysis", "Dashboard design"],
+      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkZhY3RvcnkgdGVsZW1ldHJ5IGFuYWx5c2lzIGlsbHVzdHJhdGlvbjwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPlN0eWxpemVkIGFuYWx5dGljcyBkYXNoYm9hcmQgd2l0aCBmYWN0b3J5IGFuZCBkZXZpY2UgZmlsdGVycywgdGVsZW1ldHJ5IGxpbmVzLCBhbmQgZG93bnRpbWUgY2F0ZWdvcmllcy48L2Rlc2M+CiAgPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMyNDI0MWYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzYTM3MzAiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iY29yYWwiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZjE5OTdmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZGM2YjU2Ii8+PC9saW5lYXJHcmFkaWVudD48ZmlsdGVyIGlkPSJzaGFkb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE1MCUiPjxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIyMCIgc3RkRGV2aWF0aW9uPSIyMiIgZmxvb2QtY29sb3I9IiMxNzE2MTMiIGZsb29kLW9wYWNpdHk9Ii4yNCIvPjwvZmlsdGVyPjwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIGZpbGw9IiNkOGNiYmIiLz48cGF0aCBkPSJNMCA2MTAgMTIwMCA0NzB2MzMwSDB6IiBmaWxsPSIjYzliOWE3IiBvcGFjaXR5PSIuNyIvPjxjaXJjbGUgY3g9IjEwNDAiIGN5PSIxNTAiIHI9IjE5MCIgZmlsbD0iI2U4Nzg2MyIgb3BhY2l0eT0iLjE0Ii8+CiAgPGcgZmlsdGVyPSJ1cmwoI3NoYWRvdykiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMyA5MikiPgogICAgPHJlY3Qgd2lkdGg9Ijk5NCIgaGVpZ2h0PSI2MDQiIHJ4PSIxNyIgZmlsbD0iI2Y3ZjRlZCIvPjxwYXRoIGQ9Ik0xNyAwaDk2MHExNyAwIDE3IDE3djcxSDBWMTdRMCAwIDE3IDAiIGZpbGw9IiMyMDIwMWMiLz48dGV4dCB4PSIzNSIgeT0iNDAiIGZpbGw9IiNmN2Y0ZWQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMiI+REFJS0lCTyAvIFRFTEVNRVRSWTwvdGV4dD48dGV4dCB4PSIzNSIgeT0iNjUiIGZpbGw9IiNhOGEyOTYiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBsZXR0ZXItc3BhY2luZz0iMS41Ij5GQUNUT1JZIE9QRVJBVElPTlMgwrcgQU5BTFlTSVMgVklFVzwvdGV4dD48Y2lyY2xlIGN4PSI5NDEiIGN5PSI0MCIgcj0iNSIgZmlsbD0iI2U4Nzg2MyIvPgogICAgPHJlY3QgeD0iMjkiIHk9IjExMSIgd2lkdGg9IjkzNiIgaGVpZ2h0PSI1NCIgcng9IjciIGZpbGw9IiNlOWUzZDkiLz48dGV4dCB4PSI0OCIgeT0iMTM0IiBmaWxsPSIjOGI4Mzc4IiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI5IiBsZXR0ZXItc3BhY2luZz0iMS40Ij5GSUxURVIgQlk8L3RleHQ+PHRleHQgeD0iNDgiIHk9IjE1MyIgZmlsbD0iIzM5MzcyZiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiPkZhY3Rvcnk8L3RleHQ+PHBhdGggZD0iTTE1NCAxMzB2MjJNNDMwIDEzMHYyMk03MDIgMTMwdjIyIiBzdHJva2U9IiNkMWM4YmEiLz48dGV4dCB4PSIxODAiIHk9IjE0OCIgZmlsbD0iIzZiNjY1ZCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiPkFsbCBmYWN0b3J5IGxvY2F0aW9uczwvdGV4dD48cGF0aCBkPSJtNDA0IDE0NCA1IDUgNS01IiBmaWxsPSJub25lIiBzdHJva2U9IiM4YjgzNzgiLz48dGV4dCB4PSI0NTQiIHk9IjE0OCIgZmlsbD0iIzZiNjY1ZCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiPkRldmljZSB0eXBlPC90ZXh0PjxwYXRoIGQ9Im02NzUgMTQ0IDUgNSA1LTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhiODM3OCIvPjx0ZXh0IHg9IjcyNiIgeT0iMTQ4IiBmaWxsPSIjNmI2NjVkIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiI+U3RhdHVzICZhbXA7IGRvd250aW1lPC90ZXh0PgogICAgPHJlY3QgeD0iMjkiIHk9IjE4OCIgd2lkdGg9IjU4NSIgaGVpZ2h0PSIyNDAiIHJ4PSI5IiBmaWxsPSIjZmZmZGY4IiBzdHJva2U9IiNkZmQ5Y2UiLz48dGV4dCB4PSI1MSIgeT0iMjIwIiBmaWxsPSIjM2IzOTMyIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjcwMCI+RXF1aXBtZW50IHRlbGVtZXRyeTwvdGV4dD48dGV4dCB4PSI1MSIgeT0iMjM5IiBmaWxsPSIjOTI4YjdmIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCI+TWFjaGluZSBhY3Rpdml0eSBhY3Jvc3Mgc2VsZWN0ZWQgZmFjdG9yaWVzPC90ZXh0PjxwYXRoIGQ9Ik02OCAzODVoNTE4TTY4IDM0N2g1MThNNjggMzA5aDUxOE02OCAyNzFoNTE4IiBzdHJva2U9IiNlZWU5ZTAiLz48cGF0aCBkPSJNNjggMjU0djE0N00xNzEgMjU0djE0N00yNzUgMjU0djE0N00zNzkgMjU0djE0N000ODMgMjU0djE0N001ODYgMjU0djE0NyIgc3Ryb2tlPSIjZjBlYmUzIi8+CiAgICA8cGF0aCBkPSJNNjkgMzUyYzQ1LTkgNDUtNTUgODUtNDggMzcgNiAzNyA0OSA3NSAzOXMzOS03MSA3Ny01OSAzNyA2OSA3NSA0NCAzOC02MyA3Ni01MyA0MCA2MyA3OSA0NyAzNC00MiA1NC00NyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTg3ODYzIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02OSAzNzFjNDQtNCA1MS0yNyA4NS0yNHM0NSAzMSA3NSAxOSA0NC00NyA3Ny0zOSA0NiA0MCA3NSAzMCAzNi0zNiA3Ni0zMCA0NiA0NCA3OSAzMiAzOS0yNSA1NC0yOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjY4YjY1IiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIuOSIvPgogICAgPHJlY3QgeD0iNjM4IiB5PSIxODgiIHdpZHRoPSIzMjciIGhlaWdodD0iMjQwIiByeD0iOSIgZmlsbD0iIzI5MjkyMyIvPjx0ZXh0IHg9IjY2MiIgeT0iMjIwIiBmaWxsPSIjZjNlZWU1IiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjcwMCI+RG93bnRpbWUgYnkgY2F0ZWdvcnk8L3RleHQ+PHRleHQgeD0iNjYyIiB5PSIyMzkiIGZpbGw9IiNhYWEzOTciIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIj5Hcm91cGVkIGZvciBjb21wYXJpc29uPC90ZXh0PjxnIGZpbGw9IiNkOGNiYmIiPjx0ZXh0IHg9IjY2MyIgeT0iMjgyIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCI+RmFjdG9yeTwvdGV4dD48dGV4dCB4PSI2NjMiIHk9IjMyMiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiPkRldmljZSB0eXBlPC90ZXh0Pjx0ZXh0IHg9IjY2MyIgeT0iMzYyIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCI+RXF1aXBtZW50IHN0YXR1czwvdGV4dD48L2c+PHJlY3QgeD0iNzU3IiB5PSIyNjciIHdpZHRoPSIxNjgiIGhlaWdodD0iMTMiIHJ4PSI2IiBmaWxsPSIjNDU0NDNkIi8+PHJlY3QgeD0iNzU3IiB5PSIyNjciIHdpZHRoPSIxMTIiIGhlaWdodD0iMTMiIHJ4PSI2IiBmaWxsPSJ1cmwoI2NvcmFsKSIvPjxyZWN0IHg9Ijc1NyIgeT0iMzA3IiB3aWR0aD0iMTY4IiBoZWlnaHQ9IjEzIiByeD0iNiIgZmlsbD0iIzQ1NDQzZCIvPjxyZWN0IHg9Ijc1NyIgeT0iMzA3IiB3aWR0aD0iNzgiIGhlaWdodD0iMTMiIHJ4PSI2IiBmaWxsPSIjZDNhYTgxIi8+PHJlY3QgeD0iNzU3IiB5PSIzNDciIHdpZHRoPSIxNjgiIGhlaWdodD0iMTMiIHJ4PSI2IiBmaWxsPSIjNDU0NDNkIi8+PHJlY3QgeD0iNzU3IiB5PSIzNDciIHdpZHRoPSIxMzIiIGhlaWdodD0iMTMiIHJ4PSI2IiBmaWxsPSIjODc5MTdmIi8+PHBhdGggZD0iTTY2MiAzOTJoMjc3IiBzdHJva2U9IiM0OTQ4M2YiLz48Y2lyY2xlIGN4PSI2NzAiIGN5PSI0MDciIHI9IjQiIGZpbGw9IiNlODc4NjMiLz48dGV4dCB4PSI2ODIiIHk9IjQxMSIgZmlsbD0iI2M5YzFiNCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOSI+U2VsZWN0ZWQgZmlsdGVyIGNvbnRleHQ8L3RleHQ+CiAgICA8cmVjdCB4PSIyOSIgeT0iNDUxIiB3aWR0aD0iOTM2IiBoZWlnaHQ9IjEyNiIgcng9IjkiIGZpbGw9IiNlY2U2ZGMiLz48dGV4dCB4PSI1MSIgeT0iNDgxIiBmaWxsPSIjM2IzOTMyIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCI+Q29ubmVjdGVkIHZpZXdzPC90ZXh0Pjx0ZXh0IHg9IjUxIiB5PSI1MDIiIGZpbGw9IiM5MjhiN2YiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIj5Gb2xsb3cgYSBjYXRlZ29yeSB0byBpbnNwZWN0IHRoZSByZWxhdGVkIGVxdWlwbWVudCBkYXRhPC90ZXh0PjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxIDUyMykiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIj48cmVjdCB3aWR0aD0iMjA4IiBoZWlnaHQ9IjMyIiByeD0iNSIgZmlsbD0iI2ZmZmRmOCIgc3Ryb2tlPSIjZGNkNGM3Ii8+PHRleHQgeD0iMTQiIHk9IjIwIiBmaWxsPSIjNjU1ZjU2Ij5GYWN0b3J5IG92ZXJ2aWV3PC90ZXh0PjxwYXRoIGQ9Ik0yMjAgMTZoMjRtLTYtNiA2IDYtNiA2IiBmaWxsPSJub25lIiBzdHJva2U9IiNjMjZiNTUiLz48cmVjdCB4PSIyNTEiIHdpZHRoPSIyMDgiIGhlaWdodD0iMzIiIHJ4PSI1IiBmaWxsPSIjZmZmZGY4IiBzdHJva2U9IiNkY2Q0YzciLz48dGV4dCB4PSIyNjUiIHk9IjIwIiBmaWxsPSIjNjU1ZjU2Ij5EZXZpY2UgYnJlYWtkb3duPC90ZXh0PjxwYXRoIGQ9Ik00NzEgMTZoMjRtLTYtNiA2IDYtNiA2IiBmaWxsPSJub25lIiBzdHJva2U9IiNjMjZiNTUiLz48cmVjdCB4PSI1MDIiIHdpZHRoPSIyMDgiIGhlaWdodD0iMzIiIHJ4PSI1IiBmaWxsPSIjZmZmZGY4IiBzdHJva2U9IiNkY2Q0YzciLz48dGV4dCB4PSI1MTYiIHk9IjIwIiBmaWxsPSIjNjU1ZjU2Ij5Eb3dudGltZSBwYXR0ZXJuczwvdGV4dD48L2c+CiAgPC9nPgogIDx0ZXh0IHg9IjY5IiB5PSI3NTgiIGZpbGw9IiM2NTViNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZXR0ZXItc3BhY2luZz0iMiI+REVMT0lUVEUgREFUQSBBTkFMWVRJQ1MgLyBKT0IgU0lNVUxBVElPTjwvdGV4dD4KPC9zdmc+Cg==",
+      imageAlt: "Illustrated Tableau-style analysis of factory telemetry and equipment downtime",
+      link: { label: "View completion certificate", url: "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_6a65b579e22952070f4eaa58_1788716012145_completion_certificate.pdf" }
+    },
+    {
+      number: "02",
+      category: "SKILL BADGE",
+      name: "MongoDB Overview: Core Concepts & Architecture",
+      issuer: "MongoDB · Credly",
+      description: "Earned a badge covering documents and collections, how data gets structured, and how MongoDB scales under the hood.",
+      technologies: ["MongoDB", "NoSQL", "Databases"],
+      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPk1vbmdvREIgY29uY2VwdHMgYW5kIGFyY2hpdGVjdHVyZSBpbGx1c3RyYXRpb248L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5BIGNvbmNlcHR1YWwgaWxsdXN0cmF0aW9uIGNvbm5lY3RpbmcgZG9jdW1lbnRzIGFuZCBjb2xsZWN0aW9ucyB0byBkaXN0cmlidXRlZCBkYXRhYmFzZSBub2Rlcy48L2Rlc2M+CiAgPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMyNjMxMmIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNzIwMWMiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iZG9jIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2YxZThkNyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Q1YzhiNSIvPjwvbGluZWFyR3JhZGllbnQ+PGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxODAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMTgiIHN0ZERldmlhdGlvbj0iMjUiIGZsb29kLWNvbG9yPSIjMDcxMjBjIiBmbG9vZC1vcGFjaXR5PSIuNDIiLz48L2ZpbHRlcj48L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iODAwIiBmaWxsPSJ1cmwoI2JnKSIvPjxjaXJjbGUgY3g9IjU5NiIgY3k9IjM4MCIgcj0iMjQ3IiBmaWxsPSIjNzVhMjc5IiBvcGFjaXR5PSIuMDYiLz48Y2lyY2xlIGN4PSI1OTYiIGN5PSIzODAiIHI9IjMwNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYWVjMmFhIiBzdHJva2Utb3BhY2l0eT0iLjE2Ii8+PGNpcmNsZSBjeD0iNTk2IiBjeT0iMzgwIiByPSIzNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2FlYzJhYSIgc3Ryb2tlLW9wYWNpdHk9Ii4wOCIvPgogIDxnIHN0cm9rZT0iI2E1YzJhNCIgc3Ryb2tlLW9wYWNpdHk9Ii41MyIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIj48cGF0aCBkPSJNMzY1IDI3NyA1MTQgMzUzTTM2NSA0ODhsMTQ5LTc3TTY4NSAzNTNsMTUwLTc2TTY4NSA0MTBsMTUwIDc4TTYwMCAzMDF2LTgxTTYwMCA0Njd2MTAxIi8+PHBhdGggZD0iTTQyMSAzODFoOTZNNjgzIDM4MWg5NiIgc3Ryb2tlLWRhc2hhcnJheT0iNSA4Ii8+PC9nPgogIDxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NDYgMjY4KSI+CiAgICA8cGF0aCBkPSJNMzggMGgxODRsNzUgNzR2MjIzcTAgMjAtMjAgMjBIMzhxLTIwIDAtMjAtMjBWMjBRMTggMCAzOCAwIiBmaWxsPSJ1cmwoI2RvYykiLz48cGF0aCBkPSJNMjIyIDB2NTVxMCAxOSAxOSAxOWg1NiIgZmlsbD0iI2M1YjY5ZiIvPjxwYXRoIGQ9Ik0yMjMgMXY1M3EwIDE4IDE4IDE4aDU1IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNTlhODgiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPGNpcmNsZSBjeD0iNzAiIGN5PSIxMDciIHI9IjExIiBmaWxsPSIjNTg4MzZhIi8+PHBhdGggZD0iTTY1IDEwN2gxME03MCAxMDJ2MTAiIHN0cm9rZT0iI2Y0ZWVlMiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8ZyBmaWxsPSIjNTg2MDU0IiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjE1Ij48dGV4dCB4PSI5NCIgeT0iMTEyIj5kb2N1bWVudDwvdGV4dD48dGV4dCB4PSI2MSIgeT0iMTU3Ij57PC90ZXh0Pjx0ZXh0IHg9IjgzIiB5PSIxODciIGZpbGw9IiM4ZTY1NGQiPiJfaWQiPC90ZXh0Pjx0ZXh0IHg9IjE1MSIgeT0iMTg3Ij46IC4uLjwvdGV4dD48dGV4dCB4PSI4MyIgeT0iMjE4IiBmaWxsPSIjOGU2NTRkIj4iZmllbGQiPC90ZXh0Pjx0ZXh0IHg9IjE1NyIgeT0iMjE4Ij46IC4uLjwvdGV4dD48dGV4dCB4PSI2MSIgeT0iMjQ5Ij59PC90ZXh0PjwvZz4KICAgIDxwYXRoIGQ9Ik01OCAyNzZoMTg3IiBzdHJva2U9IiNjNGI4YTYiLz48dGV4dCB4PSI2MCIgeT0iMjk2IiBmaWxsPSIjN2Q3NTY4IiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgbGV0dGVyLXNwYWNpbmc9IjEuMyI+RkxFWElCTEUgREFUQSBTSEFQRTwvdGV4dD4KICA8L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTggMjI1KSI+PHJlY3Qgd2lkdGg9IjI1MCIgaGVpZ2h0PSI5MSIgcng9IjEwIiBmaWxsPSIjMjkzNTJkIiBzdHJva2U9IiM4MTk2N2QiIHN0cm9rZS1vcGFjaXR5PSIuNDgiLz48Y2lyY2xlIGN4PSIyOCIgY3k9IjI5IiByPSI3IiBmaWxsPSIjZTg3ODYzIi8+PHRleHQgeD0iNDkiIHk9IjM0IiBmaWxsPSIjZTllNWQ4IiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+Q29sbGVjdGlvbjwvdGV4dD48cGF0aCBkPSJNMjggNTVoMTg5TTI4IDY2aDEzOE0yOCA3N2gxNjMiIHN0cm9rZT0iIzg5OTU4NCIgc3Ryb2tlLW9wYWNpdHk9Ii41NSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODUyIDIyNSkiPjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iOTEiIHJ4PSIxMCIgZmlsbD0iIzI5MzUyZCIgc3Ryb2tlPSIjODE5NjdkIiBzdHJva2Utb3BhY2l0eT0iLjQ4Ii8+PGNpcmNsZSBjeD0iMjgiIGN5PSIyOSIgcj0iNyIgZmlsbD0iI2U4Nzg2MyIvPjx0ZXh0IHg9IjQ5IiB5PSIzNCIgZmlsbD0iI2U5ZTVkOCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI3MDAiPkFyY2hpdGVjdHVyZTwvdGV4dD48ZyBmaWxsPSIjNzI4YzcwIj48Y2lyY2xlIGN4PSIzOSIgY3k9IjY1IiByPSI5Ii8+PGNpcmNsZSBjeD0iODUiIGN5PSI2NSIgcj0iOSIvPjxjaXJjbGUgY3g9IjEzMSIgY3k9IjY1IiByPSI5Ii8+PGNpcmNsZSBjeD0iMTc3IiBjeT0iNjUiIHI9IjkiLz48L2c+PHBhdGggZD0iTTQ4IDY1aDI4bTE4IDBoMjhtMTggMGgyOCIgc3Ryb2tlPSIjYmVjYmI0IiBzdHJva2Utd2lkdGg9IjIiLz48L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTggNDUxKSI+PHJlY3Qgd2lkdGg9IjI1MCIgaGVpZ2h0PSI5MSIgcng9IjEwIiBmaWxsPSIjMjkzNTJkIiBzdHJva2U9IiM4MTk2N2QiIHN0cm9rZS1vcGFjaXR5PSIuNDgiLz48Y2lyY2xlIGN4PSIyOCIgY3k9IjI5IiByPSI3IiBmaWxsPSIjZTg3ODYzIi8+PHRleHQgeD0iNDkiIHk9IjM0IiBmaWxsPSIjZTllNWQ4IiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+UXVlcnkgY29uY2VwdHM8L3RleHQ+PHBhdGggZD0iTTI5IDU5aDE2Mm0tMTYyIDEzaDEyNyIgc3Ryb2tlPSIjODk5NTg0IiBzdHJva2Utb3BhY2l0eT0iLjU1IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Im0yMDEgNTkgOSA3LTkgNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTg3ODYzIiBzdHJva2Utd2lkdGg9IjIiLz48L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODUyIDQ1MSkiPjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iOTEiIHJ4PSIxMCIgZmlsbD0iIzI5MzUyZCIgc3Ryb2tlPSIjODE5NjdkIiBzdHJva2Utb3BhY2l0eT0iLjQ4Ii8+PGNpcmNsZSBjeD0iMjgiIGN5PSIyOSIgcj0iNyIgZmlsbD0iI2U4Nzg2MyIvPjx0ZXh0IHg9IjQ5IiB5PSIzNCIgZmlsbD0iI2U5ZTVkOCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI3MDAiPlNjYWxpbmcgaWRlYXM8L3RleHQ+PHBhdGggZD0iTTMxIDY4aDQzbTAgMCAxMi0xNm0tMTIgMTYgMTIgMTRtLTEyLTE0aDU0bTAgMCAxMi0xNm0tMTIgMTYgMTIgMTRtLTEyLTE0aDUxIiBmaWxsPSJub25lIiBzdHJva2U9IiNhN2JkOWYiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjMxIiBjeT0iNjgiIHI9IjQiIGZpbGw9IiNlODc4NjMiLz48Y2lyY2xlIGN4PSIyMjMiIGN5PSI2OCIgcj0iNCIgZmlsbD0iI2U4Nzg2MyIvPjwvZz4KICA8ZyBmaWxsPSIjZTRlYWRjIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgbGV0dGVyLXNwYWNpbmc9IjIiPjx0ZXh0IHg9IjgyIiB5PSI3MDUiPkRPQ1VNRU5UUzwvdGV4dD48dGV4dCB4PSI1MzEiIHk9IjcwNSI+Q09SRSBDT05DRVBUUzwvdGV4dD48dGV4dCB4PSI4ODIiIHk9IjcwNSI+RElTVFJJQlVURUQgREFUQTwvdGV4dD48L2c+PHRleHQgeD0iNzAiIHk9Ijc1NyIgZmlsbD0iIzlhYTY5NCIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxldHRlci1zcGFjaW5nPSIyIj5NT05HT0RCIE9WRVJWSUVXIC8gQ09SRSBDT05DRVBUUyAmYW1wOyBBUkNISVRFQ1RVUkU8L3RleHQ+Cjwvc3ZnPgo=",
+      imageAlt: "Illustrated MongoDB concepts connecting documents, collections, and database architecture",
+      link: { label: "View MongoDB badge", url: "https://www.credly.com/badges/178af6e7-a6a5-4c4d-a9bb-32f773e8fdcd" }
     }
-    .bubble::before {
-      left: 50%; top: auto; bottom: -6px;
-      margin: 0 0 0 -5px;
-      border: 0;
-      border-right: 1px solid var(--cyan-line);
-      border-bottom: 1px solid var(--cyan-line);
+  ],
+  education: [
+    {
+      label: "CURRENT STUDY",
+      title: "BSc (Hons) Computer Science",
+      organization: "University of Delhi",
+      detail: "First-year student building foundations in computer science and applying them through independent projects."
     }
-    .hero-card { padding-top: 64px; }
-    .actions .btn, .contact-actions .btn { flex: 1 1 100%; text-align: center; }
-  }
+  ],
+  skills: [
+    { number: "01", title: "Programming & fundamentals", items: ["Python", "Java", "C++", "JavaScript", "Data structures & algorithms"] },
+    { number: "02", title: "Data, web & tools", items: ["SQL", "Tableau", "Microsoft Excel", "HTML & CSS", "Git & GitHub"] },
+    { number: "03", title: "Exploring", items: ["Data visualization", "Web development basics"] }
+  ]
+};
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-  }
-</style>
+  </script>
+  
 </head>
-
 <body>
-<canvas id="bg" aria-hidden="true"></canvas>
-<div class="glow" aria-hidden="true"></div>
-
-<header class="nav" id="nav">
-  <div class="nav-in">
-    <a class="brand" href="#hero" aria-label="Ansh, back to top">Ansh <span class="ver">v0.5</span></a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
-    <nav class="links" id="menu" aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#changelog">Changelog</a>
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <header class="topbar">
+    <a class="wordmark" href="#home" aria-label="Ansh, back to top"><span class="wordmark-mark" aria-hidden="true">A</span><span data-bind="brand">ANSH</span><span class="wordmark-period">.</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#work">Projects</a><a href="#certifications">Certifications</a><a href="#path">Education</a><a href="#skills">Skills</a><a href="#contact" class="nav-contact">Let's talk <span aria-hidden="true">↗</span></a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main>
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="hero">
-    <div class="avatar-wrap">
-      <canvas id="avatar" aria-hidden="true"></canvas>
-      <p class="bubble">Heyy! Ansh is here. What's up?</p>
-    </div>
-
-    <div class="hero-card">
-      <div class="chips">
-        <span class="chip">Delhi University</span>
-      </div>
-
-      <h1>Hi, I'm <span class="name">Ansh</span></h1>
-      <p class="tagline">Building a career in computer science.</p>
-      <p class="lede">First-year BSc (Hons) Computer Science student at Delhi University, bridging software engineering fundamentals with enterprise data analytics.</p>
-
-      <div class="actions">
-        <a class="btn primary" href="#work">Explore Projects</a>
-        <a class="btn" href="#about">Learn About Me</a>
-        <a class="btn" href="#contact">Say Hello</a>
-      </div>
-
-      <p class="status">Open to software and data internships</p>
-    </div>
-  </section>
-
-  <!-- ================= ABOUT ================= -->
-  <section class="section" id="about">
-    <div class="wrap">
-      <h2>About</h2>
-      <div class="about-grid">
-        <div class="about-copy">
-          <p>I'm studying Computer Science through Delhi University, which means most of my learning happens outside a classroom — reading documentation, working through problems on my own, and figuring things out before asking for help. That's shaped how I work: independently, and comfortable with not knowing something yet.</p>
-          <p>Right now I'm splitting time between coursework fundamentals and hands-on practice, most recently a data analytics simulation with Deloitte and my first-semester project, a student productivity and attendance manager. I'm looking for an internship where I can keep building like that, alongside people who'll push me further.</p>
-        <dl class="panel facts">
-          <div><dt>Studying</dt><dd>BSc (Hons) Computer Science, Delhi University</dd></div>
-          <div><dt>Recently</dt><dd>Student Productivity &amp; Attendance Manager, Deloitte Data Analytics Job Simulation</dd></div>
-          <div><dt>Looking for</dt><dd>An internship in software development or data analytics</dd></div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CHANGELOG ================= -->
-  <section class="section" id="changelog">
-    <div class="wrap">
-      <h2>Changelog</h2>
-      <p class="changelog-intro">A running record of what I've been building, in the order it happened.</p>
-      <ol class="timeline">
-         <li class="entry">
-          <div class="entry-head"><span class="ver">v0.5</span><h3>Student Productivity &amp; Attendance Manager</h3></div>
-          <p>Built and published my first-semester project — a dashboard for tracking attendance, assignments, exams, marks and CGPA, with a 3D interface and live charts.</p>
-          <a class="link" href="https://anshsharma2674.github.io/student-productivity-manager/" target="_blank" rel="noopener">View website</a>
-        </li>
-        <li class="entry">
-          <div class="entry-head"><span class="ver">v0.4</span><h3>MongoDB certification</h3></div>
-          <p>Earned the MongoDB Overview: Core Concepts and Architecture badge — documents and collections, how data gets structured, and how MongoDB scales.</p>
-          <a class="link" href="https://www.credly.com/badges/178af6e7-a6a5-4c4d-a9bb-32f773e8fdcd" target="_blank" rel="noopener">View badge</a>
-        </li>
-        <li class="entry">
-          <div class="entry-head"><span class="ver">v0.3</span><h3>This site, and what's next</h3></div>
-          <p>Building this portfolio and a LinkedIn profile, and starting to look for an internship in software development or data analytics.</p>
-        </li>
-        <li class="entry">
-          <div class="entry-head"><span class="ver">v0.2</span><h3>Deloitte data analytics simulation</h3></div>
-          <p>Working through Deloitte's Data Analytics Job Simulation on Forage — building Tableau dashboards to analyze equipment downtime for a manufacturing client.</p>
-        </li>
-        <li class="entry">
-          <div class="entry-head"><span class="ver">v0.1</span><h3>Started the degree</h3></div>
-          <p>Enrolled in BSc (Hons) Computer Science at Delhi University.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ================= FEATURED WORK ================= -->
-  <section class="section" id="work">
-    <div class="wrap">
-      <h2>Featured work</h2>
-      <div class="work-grid">
-        <article class="panel project">
-          <p class="state">Completed</p>
-          <h3>Student Productivity &amp; Attendance Manager</h3>
-          <p>A first-semester project: an all-in-one academic dashboard for students. Track attendance per subject against a target percentage, manage assignments and exam timetables, record marks, calculate CGPA, plan study tasks, and get alerts — with quick search (Ctrl K), a 3D animated interface and Chart.js analytics. Data is saved in the browser, so it works without a server.</p>
-          <ul class="tags"><li>JavaScript</li><li>Three.js</li><li>Chart.js</li><li>HTML &amp; CSS</li></ul>
-          <div style="display:flex;flex-wrap:wrap;gap:20px">
-            <a class="link" href="https://anshsharma2674.github.io/student-productivity-manager/" target="_blank" rel="noopener">View website</a>
+  <main id="main-content">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-inner page-wrap">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-halo" aria-hidden="true"></div>
+          <div class="visual-orbit orbit-one" aria-hidden="true"></div><div class="visual-orbit orbit-two" aria-hidden="true"></div>
+          <canvas id="orb-canvas" aria-hidden="true"></canvas>
+        </div>
+        <div class="hero-identity" aria-label="Ansh avatar and greeting">
+          <img class="hero-avatar" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+QW5zaCBwb3J0Zm9saW8gYXZhdGFyPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+QSBmcmllbmRseSwgZ2xvc3N5IGNvcmFsIG9yYiBjaGFyYWN0ZXIgd2l0aCBicmlnaHQgZXllcyBhbmQgYSB3YXJtIHNtaWxlLjwvZGVzYz4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0ib3JiIiBjeD0iMzUlIiBjeT0iMjUlIiByPSI4MiUiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmUxYzkiLz48c3RvcCBvZmZzZXQ9Ii4yOCIgc3RvcC1jb2xvcj0iI2Y0YTE4MSIvPjxzdG9wIG9mZnNldD0iLjY2IiBzdG9wLWNvbG9yPSIjZGM2ZjVkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOWU0NjQ1Ii8+PC9yYWRpYWxHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZWRnZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmYwZGMiIHN0b3Atb3BhY2l0eT0iLjkiLz48c3RvcCBvZmZzZXQ9Ii40OCIgc3RvcC1jb2xvcj0iI2YwYTA4NyIgc3RvcC1vcGFjaXR5PSIuMzgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiODU3NTIiIHN0b3Atb3BhY2l0eT0iLjgiLz48L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzaGluZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iLjU1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzUlIiB5PSItMzUlIiB3aWR0aD0iMTcwJSIgaGVpZ2h0PSIxODAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMTIiIHN0ZERldmlhdGlvbj0iMTEiIGZsb29kLWNvbG9yPSIjNjMzNjJlIiBmbG9vZC1vcGFjaXR5PSIuMzIiLz48L2ZpbHRlcj4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjMiIHJlc3VsdD0iYmx1ciIvPjxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT48L2ZpbHRlcj4KICA8L2RlZnM+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NyIgcng9IjU0IiByeT0iMTEiIGZpbGw9IiM2MzM2MmUiIG9wYWNpdHk9Ii4xOSIvPgogIDxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIj4KICAgIDxwYXRoIGQ9Ik0xMDAgMTB2MTciIHN0cm9rZT0iI2Y3YzE5YyIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSI4IiByPSI2IiBmaWxsPSIjZTg3ODYzIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICAgIDxjaXJjbGUgY3g9IjEwMCIgY3k9Ijk4IiByPSI3MyIgZmlsbD0idXJsKCNvcmIpIiBzdHJva2U9InVybCgjZWRnZSkiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgPGVsbGlwc2UgY3g9Ijc3IiBjeT0iNTYiIHJ4PSIzNCIgcnk9IjE1IiBmaWxsPSJ1cmwoI3NoaW5lKSIgb3BhY2l0eT0iLjUiIHRyYW5zZm9ybT0icm90YXRlKC0yOCA3NyA1NikiLz4KICAgIDxwYXRoIGQ9Ik0zOCA4OGMzLTI5IDI1LTUzIDU0LTU5IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmY0ZTYiIHN0cm9rZS1vcGFjaXR5PSIuNTUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8ZWxsaXBzZSBjeD0iNzUiIGN5PSI5OCIgcng9IjE1IiByeT0iMjAiIGZpbGw9IiNmNWZkZmYiLz48ZWxsaXBzZSBjeD0iMTI2IiBjeT0iOTgiIHJ4PSIxNSIgcnk9IjIwIiBmaWxsPSIjZjVmZGZmIi8+CiAgICA8ZWxsaXBzZSBjeD0iODAiIGN5PSIxMDEiIHJ4PSI3LjQiIHJ5PSIxMC40IiBmaWxsPSIjNGIzMDJkIi8+PGVsbGlwc2UgY3g9IjEzMSIgY3k9IjEwMSIgcng9IjcuNCIgcnk9IjEwLjQiIGZpbGw9IiM0YjMwMmQiLz4KICAgIDxjaXJjbGUgY3g9IjgyIiBjeT0iOTYiIHI9IjMiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxMzMiIGN5PSI5NiIgcj0iMyIgZmlsbD0iI2ZmZiIvPgogICAgPHBhdGggZD0iTTc5IDEyN2M3IDEwIDE1IDE0IDIzIDE0IDkgMCAxNy00IDIzLTE0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYwZGMiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8Y2lyY2xlIGN4PSI1NSIgY3k9IjEyMSIgcj0iOCIgZmlsbD0iI2ZmZDNiMSIgb3BhY2l0eT0iLjY4Ii8+PGNpcmNsZSBjeD0iMTQ1IiBjeT0iMTIxIiByPSI4IiBmaWxsPSIjZmZkM2IxIiBvcGFjaXR5PSIuNjgiLz4KICA8L2c+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9Ijk4IiByeD0iODUiIHJ5PSIzMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjc0YzM5IiBzdHJva2Utb3BhY2l0eT0iLjY1IiBzdHJva2Utd2lkdGg9IjEuNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTIyIDEwMCA5OCkiLz4KICA8Y2lyY2xlIGN4PSIxOSIgY3k9IjY1IiByPSIzLjUiIGZpbGw9IiNmMmIxOGIiLz48Y2lyY2xlIGN4PSIxNzEiIGN5PSIxMjkiIHI9IjMiIGZpbGw9IiNkOTk1NzYiLz4KPC9zdmc+Cg==" alt="Friendly coral orb avatar with a smiling face" width="138" height="138">
+          <span class="speech-bubble" data-bind="heroGreeting">Heyy!! i am Ansh. What's up</span>
+        </div>
+        <div class="hero-copy">
+          <div class="hero-panel">
+            <p class="hero-school" data-bind="university">Delhi University</p>
+            <h1 class="hero-title" id="hero-title" data-bind="heroHeadline">Computer science<br><em>student &amp; builder.</em></h1>
+            <p class="hero-subhead" data-bind="heroSubhead">First-year BSc (Hons) Computer Science student at Delhi University, bridging software engineering fundamentals with enterprise data analytics.</p>
+            <div class="hero-actions"><a class="button button-primary" href="#work">Explore Projects <span aria-hidden="true">↘</span></a><a class="button button-quiet" href="#about">Learn About Me <span aria-hidden="true">↘</span></a><a class="button button-quiet" href="#contact">Say Hello <span aria-hidden="true">↗</span></a></div>
+            <div class="hero-note"><span class="status-light" aria-hidden="true"></span><span data-bind="availability">OPEN TO SOFTWARE &amp; DATA INTERNSHIPS</span></div>
           </div>
-        </article>
-        <article class="panel project">
-          <p class="state">Completed</p>
-          <h3>Deloitte Data Analytics Job Simulation</h3>
-          <p>A simulation of Deloitte's data analytics work for Daikibo, a manufacturing client. Working in Tableau to import factory telemetry data, build a calculated field that scores downtime by equipment status, and chart downtime by factory and by device type — with the two charts linked so selecting a factory filters the device breakdown.</p>
-          <ul class="tags"><li>Tableau</li><li>Data analysis</li><li>Dashboard design</li></ul>
-          <a class="link" href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_6a65b579e22952070f4eaa58_1788716012145_completion_certificate.pdf" target="_blank" rel="noopener">View certificate</a>
-        </article>
-
-        <article class="panel project">
-          <p class="state">Completed</p>
-          <h3>MongoDB Overview: Core Concepts and Architecture</h3>
-          <p>A MongoDB skill badge covering the database's core concepts and architecture — documents and collections, how data is structured, and how MongoDB scales under the hood.</p>
-          <ul class="tags"><li>MongoDB</li><li>NoSQL</li><li>Databases</li></ul>
-          <a class="link" href="https://www.credly.com/badges/178af6e7-a6a5-4c4d-a9bb-32f773e8fdcd" target="_blank" rel="noopener">View certificate</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SKILLS ================= -->
-  <section class="section" id="skills">
-    <div class="wrap">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="panel skill-group">
-          <h3>Core</h3>
-          <ul class="tags"><li>Python</li><li>Java</li><li>C++</li><li>JavaScript</li><li>Data structures &amp; algorithms</li></ul>
         </div>
-        <div class="panel skill-group">
-          <h3>Data, web &amp; tools</h3>
-          <ul class="tags"><li>SQL</li><li>Tableau</li><li>Microsoft Excel</li><li>HTML &amp; CSS</li><li>Git &amp; GitHub</li></ul>
-        </div>
-        <div class="panel skill-group next">
-          <h3>Currently learning</h3>
-          <ul class="tags"><li>Data visualization</li><li>Web development basics</li></ul>
-        </div>
+        <a class="scroll-cue" href="#about"><span class="scroll-line" aria-hidden="true"></span>SCROLL TO EXPLORE</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= CONTACT ================= -->
-  <section class="section" id="contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-      <p class="contact-copy">I'm looking for an internship in software development or data analytics. Email is the fastest way to reach me.</p>
-      <a class="email" href="mailto:ansh64515@gmail.com">ansh64515@gmail.com</a>
-      <div class="contact-actions">
-        <a class="btn primary" href="mailto:ansh64515@gmail.com">Email me</a>
-        <a class="btn" href="https://www.linkedin.com/in/ansh1605/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://github.com/anshsharma2674" target="_blank" rel="noopener">GitHub</a>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>SOFTWARE DEVELOPMENT</span><i>✳</i><span>DATA ANALYTICS</span><i>✳</i><span>PRODUCT THINKING</span><i>✳</i><span>SOFTWARE DEVELOPMENT</span><i>✳</i><span>DATA ANALYTICS</span><i>✳</i><span>PRODUCT THINKING</span><i>✳</i></div></div>
+
+    <section class="about section-wrap section-block" id="about" aria-labelledby="about-title">
+      <div class="section-heading reveal"><span class="section-index">01 — A LITTLE ABOUT ME</span><span class="section-line" aria-hidden="true"></span><span class="mono section-aside">STUDENT / BUILDER</span></div>
+      <div class="about-grid reveal">
+        <h2 id="about-title" data-bind="aboutHeadline">Learning how<br>things <em>work</em>, then<br>making them better.</h2>
+        <div class="about-body"><div class="about-copy" data-bind="aboutCopy"></div><div class="fact-row" data-bind="facts"></div></div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <p>© Ansh. Site currently at v0.5.</p>
-    <a href="#hero">Back to top</a>
-  </div>
-</footer>
+    <section class="work section-wrap section-block" id="work" aria-labelledby="work-title">
+      <div class="section-heading reveal"><span class="section-index">02 — PROJECT WORK</span><span class="section-line" aria-hidden="true"></span><span class="mono section-aside">BUILT THROUGH PRACTICE</span></div>
+      <div class="work-title-row reveal"><h2 id="work-title">Selected <em>project</em><span class="coral">.</span></h2><span class="work-count mono" data-bind="projectCount">01 PROJECT</span></div>
+      <p class="work-intro reveal">A closer look at a student tool I designed and built to bring everyday academic planning into one place.</p>
+      <div class="project-list" data-bind="projects"></div>
+    </section>
 
-<!-- Navigation: mobile menu + highlight the section you are reading -->
+    <section class="certifications section-wrap section-block" id="certifications" aria-labelledby="certifications-title">
+      <div class="section-heading reveal"><span class="section-index">03 — CERTIFICATIONS</span><span class="section-line" aria-hidden="true"></span><span class="mono section-aside">VERIFIED LEARNING</span></div>
+      <div class="work-title-row reveal"><h2 id="certifications-title">Learning, <em>recognized</em><span class="coral">.</span></h2><span class="work-count mono" data-bind="certificationCount">02 CREDENTIALS</span></div>
+      <p class="work-intro reveal">Job simulation and technical learning credentials, with direct links to their verification pages.</p>
+      <div class="certification-list" data-bind="certifications"></div>
+    </section>
+
+    <section class="path section-wrap section-block" id="path" aria-labelledby="path-title">
+      <div class="section-heading reveal"><span class="section-index">04 — EDUCATION</span><span class="section-line" aria-hidden="true"></span><span class="mono section-aside">FOUNDATIONS / EXPLORATION</span></div>
+      <div class="path-layout reveal"><div class="path-intro"><h2 id="path-title">A foundation<br>for what’s <em>next.</em></h2><p>Learning through formal study, independent exploration, and applied work.</p></div><div class="path-list" data-bind="education"></div></div>
+    </section>
+
+    <section class="skills section-wrap section-block" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading reveal"><span class="section-index">05 — MY TOOLKIT</span><span class="section-line" aria-hidden="true"></span><span class="mono section-aside">ALWAYS GROWING</span></div>
+      <div class="skills-layout reveal"><div class="skills-intro"><h2 id="skills-title">Built on basics.<br><em>Growing</em> every day.</h2><p class="skills-note">A toolkit in progress — grounded in fundamentals and shaped by hands-on work.</p><a class="text-link" data-link="github" href="https://github.com/anshsharma2674" target="_blank" rel="noopener noreferrer">More on GitHub <span aria-hidden="true">↗</span></a></div><div class="skill-groups" data-bind="skills"></div></div>
+    </section>
+
+    <section class="contact section-wrap" id="contact" aria-labelledby="contact-title">
+      <div class="contact-kicker"><span class="status-light" aria-hidden="true"></span><span data-bind="contactKicker">OPEN TO WHAT’S NEXT</span></div>
+      <h2 id="contact-title">Good work starts<br>with a <em>conversation</em><span class="coral">.</span></h2>
+      <div class="contact-bottom"><p data-bind="contactCopy">Looking for an internship in software development or data analytics. Email is the fastest way to reach me.</p></div>
+      <div class="contact-links" data-bind="contactLinks"></div>
+      <div class="contact-socials" data-bind="socialLinks"></div>
+    </section>
+  </main>
+
+  <footer class="footer page-wrap"><a class="wordmark" href="#home"><span class="wordmark-mark" aria-hidden="true">A</span><span data-bind="brand">ANSH</span><span class="wordmark-period">.</span></a><span data-bind="footerLine">Designed with curiosity. Built with intent.</span><span class="mono">© <span id="year"></span> ANSH</span></footer>
 <script>
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
+(() => {
   'use strict';
-  var btn = document.querySelector('.menu-btn');
-  var menu = document.getElementById('menu');
 
-  function setOpen(open) {
-    menu.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.textContent = open ? 'Close' : 'Menu';
+  const data = window.PORTFOLIO;
+  if (!data) return;
+
+  const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[char]);
+  const setText = (key, value) => {
+    document.querySelectorAll(`[data-bind="${key}"]`).forEach(node => { node.textContent = value; });
+  };
+  const safeUrl = value => {
+    try {
+      const url = new URL(value, window.location.href);
+      return ['https:', 'http:', 'mailto:'].includes(url.protocol) ? url.href : '#';
+    } catch { return '#'; }
+  };
+  const externalAnchor = (url, label, className = '') => `<a class="${className}" href="${escapeHtml(safeUrl(url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)} <span aria-hidden="true">↗</span></a>`;
+
+  // Populate all portfolio copy and collections from portfolio-data.js.
+  const { profile, links } = data;
+  setText('brand', profile.name.toUpperCase());
+  setText('name', profile.name);
+  setText('heroGreeting', profile.heroGreeting);
+  setText('university', profile.university);
+  setText('availability', profile.availability);
+  const heroHeadline = document.querySelector('[data-bind="heroHeadline"]');
+  if (heroHeadline) heroHeadline.innerHTML = profile.heroHeadline;
+  setText('heroSubhead', profile.heroSubhead);
+  setText('educationShort', profile.educationShort);
+  setText('contactKicker', profile.contactKicker.toUpperCase());
+  setText('contactCopy', profile.contactCopy);
+  setText('footerLine', profile.footerLine);
+
+  const aboutHeadline = document.querySelector('[data-bind="aboutHeadline"]');
+  if (aboutHeadline) aboutHeadline.innerHTML = profile.aboutHeadline;
+  const aboutCopy = document.querySelector('[data-bind="aboutCopy"]');
+  if (aboutCopy) aboutCopy.innerHTML = profile.about.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('');
+  const facts = document.querySelector('[data-bind="facts"]');
+  if (facts) facts.innerHTML = data.facts.map(fact => `<div><span class="fact-label">${escapeHtml(fact.label)}</span><strong>${escapeHtml(fact.title)}</strong><small>${escapeHtml(fact.note)}</small></div>`).join('');
+
+  const projectCount = document.querySelector('[data-bind="projectCount"]');
+  if (projectCount) projectCount.textContent = `${String(data.projects.length).padStart(2, '0')} ${data.projects.length === 1 ? 'PROJECT' : 'PROJECTS'}`;
+  const projectsRoot = document.querySelector('[data-bind="projects"]');
+  if (projectsRoot) {
+    projectsRoot.innerHTML = data.projects.map((project, index) => {
+      const tech = project.technologies.map(item => `<span>${escapeHtml(item)}</span>`).join('');
+      const highlights = (project.highlights || []).map(item => `<li>${escapeHtml(item)}</li>`).join('');
+      const actions = project.links.map(link => externalAnchor(link.url, link.label, 'project-link')).join('');
+      return `<article class="project-card reveal" data-tilt>
+        <a class="project-art" href="${escapeHtml(safeUrl(project.links[0]?.url || '#'))}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(project.links[0]?.label || project.name)}">
+          <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" loading="lazy" width="1200" height="800">
+          <span class="art-open" aria-hidden="true">↗</span>
+        </a>
+        <div class="project-info"><div class="project-meta"><span>${escapeHtml(project.number)} / ${escapeHtml(project.category)}</span><span class="project-status"><i aria-hidden="true"></i> ${index === 2 ? 'BADGE EARNED' : 'COMPLETED'}</span></div>
+          <h3>${escapeHtml(project.name)}</h3><p>${escapeHtml(project.description)}</p>${highlights ? `<ul class="project-highlights">${highlights}</ul>` : ''}<div class="tag-row">${tech}</div><div class="project-actions">${actions}</div>
+        </div>
+      </article>`;
+    }).join('');
   }
-  btn.addEventListener('click', function () { setOpen(btn.getAttribute('aria-expanded') !== 'true'); });
-  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setOpen(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
 
-  var links = {};
-  Array.prototype.forEach.call(menu.querySelectorAll('a'), function (a) {
-    links[a.getAttribute('href').slice(1)] = a;
-  });
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        Object.keys(links).forEach(function (k) { links[k].removeAttribute('aria-current'); });
-        if (links[en.target.id]) links[en.target.id].setAttribute('aria-current', 'true');
+  const certificationCount = document.querySelector('[data-bind="certificationCount"]');
+  if (certificationCount) certificationCount.textContent = `${String(data.certifications.length).padStart(2, '0')} CREDENTIALS`;
+  const certificationsRoot = document.querySelector('[data-bind="certifications"]');
+  if (certificationsRoot) {
+    certificationsRoot.innerHTML = data.certifications.map(item => `<article class="credential-card reveal">
+      <div class="credential-art"><img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt)}" loading="lazy" width="1200" height="800"><span class="credential-number mono">${escapeHtml(item.number)}</span></div>
+      <div class="credential-info"><div class="project-meta"><span>${escapeHtml(item.category)}</span><span class="project-status"><i aria-hidden="true"></i> VERIFIED</span></div>
+        <h3>${escapeHtml(item.name)}</h3><p class="credential-issuer">${escapeHtml(item.issuer)}</p><p>${escapeHtml(item.description)}</p>
+        <div class="tag-row">${item.technologies.map(technology => `<span>${escapeHtml(technology)}</span>`).join('')}</div>
+        ${externalAnchor(item.link.url, item.link.label, 'credential-link')}
+      </div>
+    </article>`).join('');
+  }
+
+  const educationRoot = document.querySelector('[data-bind="education"]');
+  if (educationRoot) educationRoot.innerHTML = data.education.map((item, index) => `<article class="path-item"><span class="path-marker" aria-hidden="true">0${index + 1}</span><div><span class="path-label">${escapeHtml(item.label)}</span><h3>${escapeHtml(item.title)}</h3><strong>${escapeHtml(item.organization)}</strong><p>${escapeHtml(item.detail)}</p></div><span class="path-arrow" aria-hidden="true">↗</span></article>`).join('');
+
+  const skillsRoot = document.querySelector('[data-bind="skills"]');
+  if (skillsRoot) skillsRoot.innerHTML = data.skills.map(group => `<div class="skill-group"><span class="skill-number">${escapeHtml(group.number)}</span><div><h3>${escapeHtml(group.title)}</h3><div class="skill-chips">${group.items.map((item, index) => `<span${group.number === '03' ? ' class="learning"' : ''}>${escapeHtml(item)}</span>`).join('')}</div></div></div>`).join('');
+
+  document.querySelectorAll('[data-link="github"]').forEach(node => { node.href = safeUrl(links.github); });
+  const contactLinks = document.querySelector('[data-bind="contactLinks"]');
+  if (contactLinks) {
+    contactLinks.innerHTML = data.contactCards.map(card => {
+      const title = card.titleKey ? links[card.titleKey] : card.title;
+      const url = card.linkKey === 'email' ? `mailto:${links.email}` : links[card.linkKey];
+      return `<a class="contact-card contact-card-${escapeHtml(card.kind)}" href="${escapeHtml(safeUrl(url))}"${card.kind === 'email' ? '' : ' target="_blank" rel="noopener noreferrer"'}>
+      <span class="contact-card-label mono">${escapeHtml(card.label)}</span><strong>${escapeHtml(title)}</strong><span class="contact-card-detail">${escapeHtml(card.detail)}</span><span class="contact-card-arrow" aria-hidden="true">↗</span>
+    </a>`;
+    }).join('');
+  }
+  const socialLinks = document.querySelector('[data-bind="socialLinks"]');
+  if (socialLinks) socialLinks.innerHTML = `<span class="social-location">${escapeHtml(profile.location.toUpperCase())}</span>`;
+
+  document.body.classList.add('motion-ready');
+  const year = document.querySelector('#year');
+  if (year) year.textContent = new Date().getFullYear();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal sections only when they approach the viewport.
+  const revealItems = document.querySelectorAll('.reveal');
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(item => item.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+    }), { threshold: .12, rootMargin: '0px 0px -32px 0px' });
+    revealItems.forEach(item => revealObserver.observe(item));
+  }
+
+  // Small fixed progress indicator; all movement is skipped for reduced motion.
+  const progressFill = document.querySelector('.scroll-progress span');
+  let scrollFrame = 0;
+  const updateScroll = () => {
+    scrollFrame = 0;
+    if (!progressFill) return;
+    const range = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    progressFill.style.transform = `scaleX(${Math.max(0, Math.min(1, window.scrollY / range))})`;
+  };
+  window.addEventListener('scroll', () => { if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScroll); }, { passive: true });
+  window.addEventListener('resize', updateScroll, { passive: true });
+  updateScroll();
+
+  // Responsive navigation remains keyboard-operable; Escape closes and restores focus.
+  const menuButton = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('#site-nav');
+  if (menuButton && nav) {
+    const closeMenu = restoreFocus => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open menu');
+      nav.classList.remove('is-open');
+      if (restoreFocus) menuButton.focus();
+    };
+    menuButton.addEventListener('click', () => {
+      const open = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!open));
+      menuButton.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+      nav.classList.toggle('is-open', !open);
+      if (!open) nav.querySelector('a')?.focus();
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu(false)));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') closeMenu(true); });
+    window.matchMedia('(min-width: 821px)').addEventListener?.('change', () => closeMenu(false));
+  }
+
+  const sectionLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
+  const trackedSections = sectionLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window && trackedSections.length) {
+    const activeObserver = new IntersectionObserver(entries => {
+      const current = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!current) return;
+      sectionLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${current.target.id}`) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    ['hero'].concat(Object.keys(links)).forEach(function (id) {
-      var s = document.getElementById(id);
-      if (s) io.observe(s);
+    }, { rootMargin: '-22% 0px -63% 0px', threshold: [0, .12, .35, .6] });
+    trackedSections.forEach(section => activeObserver.observe(section));
+  }
+
+  // Project cards get only a tiny perspective response on pointer devices.
+  if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        const bounds = card.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - .5;
+        const y = (event.clientY - bounds.top) / bounds.height - .5;
+        card.style.setProperty('--spot-x', `${(x + .5) * 100}%`);
+        card.style.setProperty('--spot-y', `${(y + .5) * 100}%`);
+        card.style.transform = `perspective(1400px) rotateX(${-y * 1.15}deg) rotateY(${x * 1.15}deg)`;
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
     });
   }
-})();
-</script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-(function () {
-  'use strict';
+  initHeroScene(document.querySelector('#orb-canvas'), reducedMotion);
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var hero = document.getElementById('hero');
-  var avatarWrap = document.querySelector('.avatar-wrap');
-  var bgCanvas = document.getElementById('bg');
-
-  // If three.js could not load (offline, blocked), the CSS-only site still looks complete.
-  if (!window.THREE) { avatarWrap.hidden = true; bgCanvas.hidden = true; return; }
-
-  /* ---------- Pointer tracking (-1..1), with a gentle idle drift ---------- */
-  var pointer = { x: 0, y: 0, seen: 0 };
-  window.addEventListener('pointermove', function (e) {
-    pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = (e.clientY / window.innerHeight) * 2 - 1;
-    pointer.seen = performance.now();
-  }, { passive: true });
-
-  function look(t) {
-    if (reduce) return { x: 0, y: 0 };
-    if (performance.now() - pointer.seen < 3500) return pointer;
-    return { x: Math.sin(t * 0.6) * 0.55, y: Math.cos(t * 0.45) * 0.25 };
-  }
-
-  var heroVisible = true;
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) { heroVisible = entries[0].isIntersecting; }).observe(hero);
-  }
-
-  /* ---------- Background: star shell + wireframe globe, turns as you scroll ---------- */
-  function makeBackground() {
-    var renderer = new THREE.WebGLRenderer({ canvas: bgCanvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
-    var world = new THREE.Group();
-    scene.add(world);
-
-    // Stars sit on a full shell around the camera, so they never drift close to the lens
-    // and there is always something to see however far the page has scrolled.
-    var N = window.innerWidth < 700 ? 900 : 2000;
-    var pos = new Float32Array(N * 3);
-    var col = new Float32Array(N * 3);
-    var cyan = new THREE.Color(0x22d3ee), violet = new THREE.Color(0x8b7cf6), c = new THREE.Color();
-    for (var i = 0; i < N; i++) {
-      var r = 8 + Math.random() * 12;
-      var th = Math.random() * Math.PI * 2;
-      var ph = Math.acos(2 * Math.random() - 1);
-      pos[i * 3]     = r * Math.sin(ph) * Math.cos(th);
-      pos[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th);
-      pos[i * 3 + 2] = r * Math.cos(ph);
-      c.copy(cyan).lerp(violet, Math.random());
-      col[i * 3] = c.r; col[i * 3 + 1] = c.g; col[i * 3 + 2] = c.b;
+  function initHeroScene(canvas, prefersReducedMotion) {
+    if (!canvas) return;
+    const visual = canvas.closest('.hero-visual');
+    if (window.THREE && !prefersReducedMotion) {
+      try {
+        if (startThreeScene(canvas, visual)) return;
+      } catch (error) {
+        // If WebGL is unavailable or initialization fails, keep the 2D scene below.
+      }
+    } else if (window.THREE && prefersReducedMotion) {
+      try { if (startThreeScene(canvas, visual, true)) return; } catch (error) { /* Draw a 2D fallback below. */ }
     }
-    var starGeo = new THREE.BufferGeometry();
-    starGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    starGeo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-    var stars = new THREE.Points(starGeo, new THREE.PointsMaterial({
-      size: 0.07, vertexColors: true, transparent: true, opacity: 0.8,
-      depthWrite: false, blending: THREE.AdditiveBlending
-    }));
-    world.add(stars);
+    startCanvasScene(canvas, visual, prefersReducedMotion);
+  }
 
-    // Wireframe globe behind the hero card; scrolling carries it up and out of view
-    var globeGeo = new THREE.IcosahedronGeometry(4.2, 2);
-    var globe = new THREE.Group();
-    globe.add(new THREE.Mesh(globeGeo, new THREE.MeshBasicMaterial({
-      color: 0x38bdf8, wireframe: true, transparent: true, opacity: 0.16
-    })));
-    globe.add(new THREE.Points(globeGeo, new THREE.PointsMaterial({
-      size: 0.09, color: 0x22d3ee, transparent: true, opacity: 0.85, depthWrite: false
-    })));
-    globe.position.set(0, 0, -11);
-    world.add(globe);
+  function startThreeScene(fallbackCanvas, visual, staticMode = false) {
+    const THREE = window.THREE;
+    const webglCanvas = document.createElement('canvas');
+    webglCanvas.className = 'webgl-canvas';
+    webglCanvas.setAttribute('aria-hidden', 'true');
+    const renderer = new THREE.WebGLRenderer({ canvas: webglCanvas, alpha: true, antialias: true, powerPreference: 'low-power' });
+    renderer.setClearColor(0x000000, 0);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    visual.appendChild(webglCanvas);
+    visual.classList.add('has-webgl');
 
-    var bw = 0, bh = 0;
-    function resize() {
-      var w = window.innerWidth, h = window.innerHeight;
-      // Mobile browsers resize the viewport while scrolling (address bar); ignore small height changes.
-      if (w === bw && Math.abs(h - bh) < 120) return;
-      bw = w; bh = h;
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(34, 1, .1, 50);
+    camera.position.set(0, 0, 6.4);
+    const system = new THREE.Group();
+    scene.add(system);
+
+    const pointPositions = [];
+    const count = window.innerWidth > 2600 ? 420 : 250;
+    const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < count; i++) {
+      const y = 1 - (i / (count - 1)) * 2;
+      const radius = Math.sqrt(1 - y * y);
+      const angle = goldenAngle * i;
+      pointPositions.push([Math.cos(angle) * radius, y, Math.sin(angle) * radius]);
+    }
+    const pointGeometry = new THREE.BufferGeometry();
+    const nodePositions = new Float32Array(pointPositions.length * 3);
+    const nodeColors = new Float32Array(pointPositions.length * 3);
+    pointPositions.forEach((point, index) => {
+      nodePositions.set(point, index * 3);
+      const coral = new THREE.Color('#e87863');
+      const peach = new THREE.Color('#f2d6c7');
+      const color = coral.clone().lerp(peach, (point[1] + 1) * .5);
+      nodeColors.set([color.r, color.g, color.b], index * 3);
+    });
+    pointGeometry.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
+    pointGeometry.setAttribute('color', new THREE.BufferAttribute(nodeColors, 3));
+    const nodes = new THREE.Points(pointGeometry, new THREE.PointsMaterial({ size: .038, vertexColors: true, transparent: true, opacity: .93, sizeAttenuation: true }));
+    system.add(nodes);
+
+    const links = [];
+    for (let a = 0; a < pointPositions.length; a++) {
+      for (let b = a + 1; b < pointPositions.length; b++) {
+        const pa = pointPositions[a], pb = pointPositions[b];
+        const dx = pa[0] - pb[0], dy = pa[1] - pb[1], dz = pa[2] - pb[2];
+        if (dx * dx + dy * dy + dz * dz < .075) links.push(...pa, ...pb);
+      }
+    }
+    const linkGeometry = new THREE.BufferGeometry();
+    linkGeometry.setAttribute('position', new THREE.Float32BufferAttribute(links, 3));
+    system.add(new THREE.LineSegments(linkGeometry, new THREE.LineBasicMaterial({ color: '#b74c39', transparent: true, opacity: .17 })));
+
+    const wire = new THREE.Mesh(new THREE.SphereGeometry(1, 22, 18), new THREE.MeshBasicMaterial({ color: '#d7826b', wireframe: true, transparent: true, opacity: .14 }));
+    system.add(wire);
+    const orbitMaterial = new THREE.MeshBasicMaterial({ color: '#b74c39', transparent: true, opacity: .32, side: THREE.DoubleSide });
+    const orbitA = new THREE.Mesh(new THREE.TorusGeometry(1.55, .0038, 4, 180), orbitMaterial);
+    orbitA.rotation.set(.78, .33, -.16);
+    const orbitB = new THREE.Mesh(new THREE.TorusGeometry(1.78, .0025, 4, 180), new THREE.MeshBasicMaterial({ color: '#d9a183', transparent: true, opacity: .3 }));
+    orbitB.rotation.set(-.3, .86, .53);
+    system.add(orbitA, orbitB);
+
+    const starPositions = [];
+    for (let i = 0; i < 120; i++) {
+      starPositions.push(Math.sin(i * 127.1) * 2.5, Math.cos(i * 91.7) * 2.2, -1.3 - (i % 11) * .22);
+    }
+    const starGeometry = new THREE.BufferGeometry();
+    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
+    scene.add(new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: '#b74c39', size: .012, transparent: true, opacity: .32 })));
+
+    let width = 1, height = 1, frame = 0, running = false, visible = true;
+    let targetX = 0, targetY = 0;
+    const resize = () => {
+      const bounds = visual.getBoundingClientRect();
+      width = Math.max(1, bounds.width);
+      height = Math.max(1, bounds.height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.65));
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.position.z = width < 600 ? 7.15 : 6.4;
       camera.updateProjectionMatrix();
-      if (reduce) renderer.render(scene, camera);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    return function frame(t) {
-      var l = look(t);
-      var scrollTurn = reduce ? 0 : (window.scrollY || 0) * 0.0009;
-      world.rotation.y += (-l.x * 0.10 - world.rotation.y) * 0.04;
-      world.rotation.x += (-l.y * 0.06 + scrollTurn - world.rotation.x) * 0.06;
-      stars.rotation.z = t * 0.01;
-      globe.rotation.y = t * 0.07;
-      globe.rotation.x = t * 0.035;
+      render(0);
+    };
+    const render = time => {
+      system.rotation.y = (staticMode ? .28 : time * .00011) + targetX;
+      system.rotation.x = -.12 + targetY;
+      orbitA.rotation.z = -.16 + Math.sin(time * .00013) * .08;
       renderer.render(scene, camera);
     };
-  }
-
-  /* ---------- Avatar: a friendly 3D head whose eyes follow the cursor ---------- */
-  function makeAvatar() {
-    var canvas = document.getElementById('avatar');
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-    camera.position.set(0, 0, 7);
-
-    scene.add(new THREE.AmbientLight(0x6f7fd0, 0.7));
-    var key = new THREE.DirectionalLight(0xaef0ff, 1.3); key.position.set(-3, 4, 5); scene.add(key);
-    var fill = new THREE.PointLight(0x8b7cf6, 1.6, 30); fill.position.set(4, -1, 3); scene.add(fill);
-    var rim = new THREE.PointLight(0x22d3ee, 2.0, 30); rim.position.set(0, 3, -4); scene.add(rim);
-
-    var root = new THREE.Group();
-    root.position.y = -0.15;
-    scene.add(root);
-
-    var head = new THREE.Group();
-    root.add(head);
-
-    head.add(new THREE.Mesh(
-      new THREE.SphereGeometry(1.15, 48, 48),
-      new THREE.MeshStandardMaterial({ color: 0x24347a, emissive: 0x0a1233, roughness: 0.3, metalness: 0.3 })
-    ));
-
-    var earMat = new THREE.MeshStandardMaterial({ color: 0x8b7cf6, emissive: 0x3a2f9a, roughness: 0.4 });
-    [-1, 1].forEach(function (s) {
-      var ear = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.16, 28), earMat);
-      ear.rotation.z = Math.PI / 2;
-      ear.position.set(s * 1.16, 0.0, 0);
-      head.add(ear);
-    });
-
-    var stem = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.5, 12), new THREE.MeshBasicMaterial({ color: 0x5b6aa8 }));
-    stem.position.y = 1.35;
-    head.add(stem);
-    var tip = new THREE.Mesh(new THREE.SphereGeometry(0.1, 16, 16), new THREE.MeshBasicMaterial({ color: 0x22d3ee }));
-    tip.position.y = 1.65;
-    head.add(tip);
-
-    var smile = new THREE.Mesh(
-      new THREE.TorusGeometry(0.22, 0.032, 12, 40, Math.PI),
-      new THREE.MeshBasicMaterial({ color: 0x22d3ee })
-    );
-    smile.rotation.z = Math.PI;
-    smile.position.set(0, -0.28, 1.08);
-    head.add(smile);
-
-    // Eyes: socket (blinks) > ball (looks) > pupil
-    var sockets = [], balls = [];
-    [-1, 1].forEach(function (s) {
-      var socket = new THREE.Group();
-      socket.position.set(s * 0.4, 0.14, 1.02);
-      var ball = new THREE.Group();
-      ball.add(new THREE.Mesh(new THREE.SphereGeometry(0.23, 32, 32), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.2 })));
-      var pupil = new THREE.Mesh(new THREE.SphereGeometry(0.105, 24, 24), new THREE.MeshBasicMaterial({ color: 0x05070f }));
-      pupil.position.z = 0.16;
-      var shine = new THREE.Mesh(new THREE.SphereGeometry(0.032, 12, 12), new THREE.MeshBasicMaterial({ color: 0xffffff }));
-      shine.position.set(0.04, 0.05, 0.085);
-      pupil.add(shine);
-      ball.add(pupil);
-      socket.add(ball);
-      head.add(socket);
-      sockets.push(socket); balls.push(ball);
-    });
-
-    var orbit = new THREE.Group();
-    orbit.rotation.set(1.2, 0.3, 0);
-    orbit.add(new THREE.Mesh(
-      new THREE.TorusGeometry(1.75, 0.018, 8, 120),
-      new THREE.MeshBasicMaterial({ color: 0x8b7cf6, transparent: true, opacity: 0.8 })
-    ));
-    var spin = new THREE.Group();
-    var sat = new THREE.Mesh(new THREE.SphereGeometry(0.07, 16, 16), new THREE.MeshBasicMaterial({ color: 0x22d3ee }));
-    sat.position.x = 1.75;
-    spin.add(sat);
-    orbit.add(spin);
-    root.add(orbit);
-
-    function resize() {
-      var s = canvas.clientWidth || 200;
-      renderer.setSize(s, s, false);
-      if (reduce) renderer.render(scene, camera);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    var nextBlink = 2.5, blinkStart = -1;
-    var lx = 0, ly = 0;
-
-    return function frame(t) {
-      var l = look(t);
-      lx += (l.x - lx) * 0.08;
-      ly += (l.y - ly) * 0.08;
-
-      head.rotation.y = lx * 0.4;
-      head.rotation.x = ly * 0.25;
-      balls.forEach(function (b) { b.rotation.y = lx * 0.55; b.rotation.x = ly * 0.45; });
-
-      // A short wave-tilt right as the greeting appears
-      var w = t - 1.3;
-      head.rotation.z = (!reduce && w > 0 && w < 1.6) ? Math.sin(w * 9) * 0.13 * (1 - w / 1.6) : 0;
-
-      root.position.y = -0.15 + (reduce ? 0 : Math.sin(t * 1.6) * 0.05);
-      spin.rotation.z = t * 0.9;
-      orbit.rotation.z = t * 0.15;
-      tip.scale.setScalar(1 + (reduce ? 0 : Math.sin(t * 3) * 0.15));
-
-      if (!reduce && t > nextBlink) { blinkStart = t; nextBlink = t + 2.5 + Math.random() * 3; }
-      var b = t - blinkStart, sy = 1;
-      if (blinkStart >= 0 && b < 0.14) sy = 1 - Math.sin((b / 0.14) * Math.PI) * 0.92;
-      sockets.forEach(function (s) { s.scale.y = sy; });
-
-      renderer.render(scene, camera);
+    const animate = time => {
+      frame = 0;
+      if (!running || !visible || staticMode) return;
+      render(time);
+      frame = window.requestAnimationFrame(animate);
     };
+    const start = () => { if (running || staticMode) return; running = true; frame = window.requestAnimationFrame(animate); };
+    const stop = () => { running = false; if (frame) cancelAnimationFrame(frame); frame = 0; };
+    new ResizeObserver(resize).observe(visual);
+    resize();
+    if (staticMode) render(0);
+    else {
+      const observer = new IntersectionObserver(entries => {
+        visible = entries[0].isIntersecting;
+        if (visible) start(); else stop();
+      }, { threshold: .05 });
+      observer.observe(visual);
+      visual.addEventListener('pointermove', event => {
+        const bounds = visual.getBoundingClientRect();
+        targetX = ((event.clientX - bounds.left) / bounds.width - .5) * .3;
+        targetY = ((event.clientY - bounds.top) / bounds.height - .5) * .18;
+      });
+      visual.addEventListener('pointerleave', () => { targetX = 0; targetY = 0; });
+      document.addEventListener('visibilitychange', () => document.hidden ? stop() : (visible && start()));
+    }
+    fallbackCanvas.hidden = true;
+    return true;
   }
 
-  var drawBg = null, drawAvatar = null;
-  try { drawBg = makeBackground(); } catch (e) { bgCanvas.hidden = true; }
-  try { drawAvatar = makeAvatar(); } catch (e) { avatarWrap.hidden = true; }
-
-  if (reduce) {
-    if (drawBg) drawBg(0);
-    if (drawAvatar) drawAvatar(0);
-    return;
+  function startCanvasScene(canvas, visual, staticMode) {
+    const context = canvas.getContext('2d', { alpha: true });
+    if (!context) return;
+    const count = window.innerWidth > 2600 ? 360 : 230;
+    const points = [];
+    const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < count; i++) {
+      const y = 1 - (i / (count - 1)) * 2;
+      const radius = Math.sqrt(1 - y * y);
+      const angle = goldenAngle * i;
+      points.push({ x: Math.cos(angle) * radius, y, z: Math.sin(angle) * radius });
+    }
+    const stars = Array.from({ length: 100 }, (_, i) => ({ x: ((i * 1973) % 997) / 997, y: ((i * 4567 + 91) % 991) / 991, size: ((i * 31) % 7 + 2) / 10 }));
+    let width = 1, height = 1, ratio = 1, frame = 0, running = false, visible = true, pointerX = 0, pointerY = 0;
+    const resize = () => {
+      const bounds = canvas.getBoundingClientRect();
+      width = Math.max(1, bounds.width); height = Math.max(1, bounds.height);
+      const pixelBudget = width > 2600 ? 12_000_000 : 8_000_000;
+      ratio = Math.min(window.devicePixelRatio || 1, 2, Math.sqrt(pixelBudget / (width * height)));
+      canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      draw(0);
+    };
+    const draw = time => {
+      context.clearRect(0, 0, width, height);
+      const cx = width * .5, cy = height * .5;
+      const radius = Math.min(width * .33, height * .36, 380);
+      const angle = (staticMode ? .34 : time * .00012) + pointerX;
+      const tilt = -.18 + pointerY;
+      const cosA = Math.cos(angle), sinA = Math.sin(angle), cosT = Math.cos(tilt), sinT = Math.sin(tilt);
+      const projected = points.map(point => {
+        const x = point.x * cosA - point.z * sinA;
+        const z = point.x * sinA + point.z * cosA;
+        const y = point.y * cosT - z * sinT;
+        const depth = point.y * sinT + z * cosT;
+        const scale = 4.2 / (4.2 + depth);
+        return { x: cx + x * radius * scale, y: cy + y * radius * scale, z: depth };
+      });
+      stars.forEach(star => { context.fillStyle = 'rgba(183,76,57,.3)'; context.beginPath(); context.arc(star.x * width, star.y * height, star.size, 0, Math.PI * 2); context.fill(); });
+      const glow = context.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.22);
+      glow.addColorStop(0, 'rgba(232,120,99,.13)'); glow.addColorStop(.56, 'rgba(220,159,122,.07)'); glow.addColorStop(1, 'rgba(242,238,230,0)');
+      context.fillStyle = glow; context.beginPath(); context.arc(cx, cy, radius * 1.22, 0, Math.PI * 2); context.fill();
+      context.lineWidth = .65;
+      for (let a = 0; a < projected.length; a++) {
+        for (let b = a + 1; b < projected.length; b++) {
+          const pa = projected[a], pb = projected[b];
+          if (Math.abs(pa.z - pb.z) > .32) continue;
+          const dx = pa.x - pb.x, dy = pa.y - pb.y;
+          if (dx * dx + dy * dy > radius * radius * .048) continue;
+          const depth = Math.max(0, Math.min(1, (pa.z + pb.z + 2) / 4));
+          context.strokeStyle = depth > .62 ? `rgba(183,76,57,${.07 + depth * .16})` : `rgba(217,161,131,${.035 + depth * .08})`;
+          context.beginPath(); context.moveTo(pa.x, pa.y); context.lineTo(pb.x, pb.y); context.stroke();
+        }
+      }
+      projected.forEach(point => {
+        const front = Math.max(0, Math.min(1, (point.z + 1) / 2));
+        context.fillStyle = front > .73 ? `rgba(183,76,57,${.34 + front * .32})` : `rgba(219,161,131,${.15 + front * .42})`;
+        context.beginPath(); context.arc(point.x, point.y, .5 + front * .8, 0, Math.PI * 2); context.fill();
+      });
+      context.save(); context.translate(cx, cy); context.rotate(-.38); context.setLineDash([2, 7]); context.strokeStyle = 'rgba(183,76,57,.3)'; context.lineWidth = 1;
+      context.beginPath(); context.ellipse(0, 0, radius * 1.62, radius * .52, 0, 0, Math.PI * 2); context.stroke(); context.restore();
+    };
+    const animate = time => { frame = 0; if (!running || !visible || staticMode) return; draw(time); frame = requestAnimationFrame(animate); };
+    const start = () => { if (running || staticMode) return; running = true; frame = requestAnimationFrame(animate); };
+    const stop = () => { running = false; if (frame) cancelAnimationFrame(frame); frame = 0; };
+    new ResizeObserver(resize).observe(canvas); resize();
+    if (!staticMode) {
+      const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; if (visible) start(); else stop(); }, { threshold: .05 });
+      observer.observe(visual);
+      visual.addEventListener('pointermove', event => {
+        const bounds = visual.getBoundingClientRect();
+        pointerX = ((event.clientX - bounds.left) / bounds.width - .5) * .34;
+        pointerY = ((event.clientY - bounds.top) / bounds.height - .5) * .2;
+      });
+      visual.addEventListener('pointerleave', () => { pointerX = 0; pointerY = 0; });
+      document.addEventListener('visibilitychange', () => document.hidden ? stop() : (visible && start()));
+    }
   }
-
-  var start = performance.now();
-  function tick(now) {
-    requestAnimationFrame(tick);
-    if (document.hidden) return;
-    var t = (now - start) / 1000;
-    if (drawBg) drawBg(t);
-    if (drawAvatar && heroVisible) drawAvatar(t);
-  }
-  requestAnimationFrame(tick);
 })();
-</script>
+
+});
+  </script>
 </body>
 </html>
