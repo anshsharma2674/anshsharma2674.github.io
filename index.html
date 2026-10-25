@@ -134,8 +134,33 @@ a { color: inherit; }
 .work-title-row h2 em { color: var(--coral-dark); }
 .work-count { padding-bottom: 8px; color: var(--muted); font-size: 9px; white-space: nowrap; }
 .work-intro { max-width: 590px; margin: 25px 0 54px; color: #706c64; font-size: 15px; line-height: 1.8; }
-.project-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 24px; }
-.project-card:only-child { grid-column: 1 / -1; width: calc(50% - 12px); justify-self: center; }
+/* Projects scroll sideways, so new cards simply extend the track. */
+.project-carousel { position: relative; }
+.project-list { position: relative; display: flex; align-items: stretch; gap: 24px; margin-inline: -20px; padding: 8px 20px 52px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; }
+.project-list::-webkit-scrollbar { display: none; }
+.project-list.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
+.project-list .project-card { flex: 0 0 calc((100% - 48px) / 2.25); scroll-snap-align: start; }
+.project-list .project-card:hover { box-shadow: 0 18px 44px rgba(48, 37, 24, .12); }
+.project-list img { -webkit-user-drag: none; user-select: none; }
+.motion-ready .project-list .project-card.reveal { transform: translateX(44px); }
+.motion-ready .project-list .project-card.reveal.is-visible { transform: none; }
+.carousel-bar { display: flex; align-items: center; gap: 22px; }
+.carousel-bar[hidden] { display: none; }
+.carousel-progress { position: relative; flex: 1; height: 2px; overflow: hidden; border-radius: 2px; background: var(--line); }
+.carousel-progress span { position: absolute; inset: 0; background: var(--coral); transform: scaleX(.3); transform-origin: left center; transition: transform .4s ease; }
+.carousel-status { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; white-space: nowrap; }
+.carousel-controls { display: flex; align-items: center; gap: 8px; }
+.carousel-btn { display: inline-grid; min-width: 44px; height: 44px; padding: 0 16px; place-items: center; color: var(--ink); border: 1px solid rgba(31, 29, 24, .18); border-radius: 999px; background: transparent; font: 600 11px/1 var(--mono); letter-spacing: .08em; cursor: pointer; transition: color .2s ease, background .2s ease, border-color .2s ease, opacity .2s ease; }
+.carousel-arrow { padding: 0; font-size: 17px; }
+.carousel-btn:hover:not(:disabled) { color: var(--paper-bright); border-color: var(--coral-dark); background: var(--coral-dark); }
+.carousel-btn:disabled { opacity: .35; cursor: default; }
+.carousel-btn[hidden] { display: none; }
+.carousel-stage { position: relative; }
+.carousel-side { position: absolute; z-index: 5; top: calc(50% - 22px); min-width: 0; width: 46px; height: 46px; border-color: rgba(31, 29, 24, .14); background: var(--paper-bright); box-shadow: 0 8px 24px rgba(48, 37, 24, .16); transform: translateY(-50%); transition: color .2s ease, background .2s ease, border-color .2s ease, opacity .2s ease, transform .2s ease; }
+.carousel-side:hover:not(:disabled) { transform: translateY(-50%) scale(1.08); }
+.carousel-side-prev { left: -16px; }
+.carousel-side-next { right: -16px; }
+@media (max-width: 1050px) { .project-list .project-card { flex-basis: min(460px, 80%); } }
 .project-card { position: relative; display: grid; min-width: 0; grid-template-rows: auto 1fr; overflow: hidden; border: 1px solid rgba(31, 29, 24, .11); border-radius: clamp(17px, 1vw, 28px); background: var(--paper-bright); transform-style: preserve-3d; transition: box-shadow .35s ease, transform .25s ease; }
 .project-card:hover { box-shadow: 0 28px 72px rgba(48, 37, 24, .11); }
 .project-card::after { position: absolute; z-index: 1; inset: 0; pointer-events: none; content: ""; opacity: 0; background: radial-gradient(500px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(232, 120, 99, .08), transparent 42%); transition: opacity .3s ease; }
@@ -392,8 +417,13 @@ a { color: inherit; }
   .work-title-row h2 { font-size: clamp(43px, 11.5vw, 66px); }
   .work-count { padding-bottom: 4px; font-size: 7px; }
   .work-intro { margin: 18px 0 31px; font-size: 13px; }
-  .project-list { grid-template-columns: 1fr; gap: 17px; }
-  .project-card:only-child { grid-column: auto; width: auto; justify-self: stretch; }
+  .project-list { gap: 16px; }
+  .project-list .project-card { flex-basis: 86%; }
+  .carousel-bar { gap: 14px; }
+  .carousel-status { display: none; }
+  .carousel-side { width: 38px; height: 38px; top: calc(50% - 22px); }
+  .carousel-side-prev { left: -12px; }
+  .carousel-side-next { right: -12px; }
   .project-art { aspect-ratio: 1.85 / 1; }
   .project-info { padding: 22px; }
   .project-meta { align-items: flex-start; font-size: 7px; }
@@ -442,7 +472,7 @@ a { color: inherit; }
 @media (min-width: 821px) { .nav { display: flex !important; } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .motion-ready .reveal { opacity: 1; transform: none; }
+  .motion-ready .reveal, .motion-ready .project-list .project-card.reveal { opacity: 1; transform: none; }
 }
 
   </style>
@@ -510,6 +540,17 @@ window.PORTFOLIO = {
       image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgzMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkNhcmVlck1hdGNoIEFJIHJlc3VtZSBhbmQgc2tpbGwgZ2FwIGFuYWx5emVyIGlsbHVzdHJhdGlvbjwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkEgcmVzdW1lIGFuZCBhIGpvYiBkZXNjcmlwdGlvbiBjb21wYXJlZCBzaWRlIGJ5IHNpZGUsIHByb2R1Y2luZyBhIHNraWxsIGFsaWdubWVudCBzY29yZSB3aXRoIG1hdGNoZWQgYW5kIG1pc3Npbmcgc2tpbGxzLjwvZGVzYz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyNjI0MWYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxMjExMGYiLz48L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjb3JhbCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YxOWE4MCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2RjNmI1NiIvPjwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgzMCIgZmlsbD0idXJsKCNiZykiLz4KICA8Y2lyY2xlIGN4PSI2MDAiIGN5PSI0MTUiIHI9IjMzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWVlNGQ2IiBzdHJva2Utb3BhY2l0eT0iLjA3Ii8+CiAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iNDE1IiByPSIyNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U4Nzg2MyIgc3Ryb2tlLW9wYWNpdHk9Ii4xOCIvPgoKICA8IS0tIHJlc3VtZSBjYXJkIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExMCAxOTApIj4KICAgIDxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiByeD0iMjIiIGZpbGw9IiNmNGVlZTQiLz4KICAgIDxyZWN0IHg9IjI4IiB5PSIzMCIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjQ2IiByeD0iMjMiIGZpbGw9IiNlODc4NjMiLz4KICAgIDxyZWN0IHg9IjkwIiB5PSIzOCIgd2lkdGg9IjEzMCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiMyYTI4MjMiLz4KICAgIDxyZWN0IHg9IjkwIiB5PSI2MCIgd2lkdGg9IjkwIiBoZWlnaHQ9IjkiIHJ4PSI0LjUiIGZpbGw9IiM5YTk0ODgiLz4KICAgIDxyZWN0IHg9IjI4IiB5PSIxMTAiIHdpZHRoPSIyNDQiIGhlaWdodD0iOSIgcng9IjQuNSIgZmlsbD0iI2NmYzdiOCIvPgogICAgPHJlY3QgeD0iMjgiIHk9IjEzNCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI5IiByeD0iNC41IiBmaWxsPSIjY2ZjN2I4Ii8+CiAgICA8cmVjdCB4PSIyOCIgeT0iMTU4IiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjkiIHJ4PSI0LjUiIGZpbGw9IiNjZmM3YjgiLz4KICAgIDxyZWN0IHg9IjI4IiB5PSIyMDYiIHdpZHRoPSI5MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiMyYTI4MjMiLz4KICAgIDxyZWN0IHg9IjI4IiB5PSIyMzYiIHdpZHRoPSI2NCIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjZTg3ODYzIiBmaWxsLW9wYWNpdHk9Ii4yMiIvPgogICAgPHJlY3QgeD0iMTAyIiB5PSIyMzYiIHdpZHRoPSI3NiIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjZTg3ODYzIiBmaWxsLW9wYWNpdHk9Ii4yMiIvPgogICAgPHJlY3QgeD0iMTg4IiB5PSIyMzYiIHdpZHRoPSI1OCIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjZTg3ODYzIiBmaWxsLW9wYWNpdHk9Ii4yMiIvPgogICAgPHJlY3QgeD0iMjgiIHk9IjI3NiIgd2lkdGg9IjgyIiBoZWlnaHQ9IjI4IiByeD0iMTQiIGZpbGw9IiNlODc4NjMiIGZpbGwtb3BhY2l0eT0iLjIyIi8+CiAgICA8cmVjdCB4PSIxMjAiIHk9IjI3NiIgd2lkdGg9IjYwIiBoZWlnaHQ9IjI4IiByeD0iMTQiIGZpbGw9IiNlODc4NjMiIGZpbGwtb3BhY2l0eT0iLjIyIi8+CiAgICA8cmVjdCB4PSIyOCIgeT0iMzM0IiB3aWR0aD0iMjQ0IiBoZWlnaHQ9IjkiIHJ4PSI0LjUiIGZpbGw9IiNjZmM3YjgiLz4KICAgIDxyZWN0IHg9IjI4IiB5PSIzNTgiIHdpZHRoPSIxNzAiIGhlaWdodD0iOSIgcng9IjQuNSIgZmlsbD0iI2NmYzdiOCIvPgogICAgPHRleHQgeD0iMjgiIHk9Ii0xOCIgZmlsbD0iI2FhYTU5YSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGxldHRlci1zcGFjaW5nPSIzIj5SRVNVTUU8L3RleHQ+CiAgPC9nPgoKICA8IS0tIGpvYiBkZXNjcmlwdGlvbiBjYXJkIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc5MCAxOTApIj4KICAgIDxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDAwIiByeD0iMjIiIGZpbGw9IiMxZDFjMTgiIHN0cm9rZT0iI2VlZTRkNiIgc3Ryb2tlLW9wYWNpdHk9Ii4yMiIvPgogICAgPHJlY3QgeD0iMjgiIHk9IjM0IiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iI2Y0ZWVlNCIvPgogICAgPHJlY3QgeD0iMjgiIHk9IjU4IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjkiIHJ4PSI0LjUiIGZpbGw9IiM3NzczNmIiLz4KICAgIDxyZWN0IHg9IjI4IiB5PSIxMTAiIHdpZHRoPSIyNDQiIGhlaWdodD0iOSIgcng9IjQuNSIgZmlsbD0iIzRhNDc0MCIvPgogICAgPHJlY3QgeD0iMjgiIHk9IjEzNCIgd2lkdGg9IjE5NiIgaGVpZ2h0PSI5IiByeD0iNC41IiBmaWxsPSIjNGE0NzQwIi8+CiAgICA8cmVjdCB4PSIyOCIgeT0iMTU4IiB3aWR0aD0iMjI4IiBoZWlnaHQ9IjkiIHJ4PSI0LjUiIGZpbGw9IiM0YTQ3NDAiLz4KICAgIDxyZWN0IHg9IjI4IiB5PSIyMDYiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjZjRlZWU0Ii8+CiAgICA8cmVjdCB4PSIyOCIgeT0iMjM2IiB3aWR0aD0iNjQiIGhlaWdodD0iMjgiIHJ4PSIxNCIgZmlsbD0iI2U4Nzg2MyIgZmlsbC1vcGFjaXR5PSIuMzUiLz4KICAgIDxyZWN0IHg9IjEwMiIgeT0iMjM2IiB3aWR0aD0iNzYiIGhlaWdodD0iMjgiIHJ4PSIxNCIgZmlsbD0iI2U4Nzg2MyIgZmlsbC1vcGFjaXR5PSIuMzUiLz4KICAgIDxyZWN0IHg9IjE4OCIgeT0iMjM2IiB3aWR0aD0iNzAiIGhlaWdodD0iMjgiIHJ4PSIxNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZThkY2NjIiBzdHJva2Utb3BhY2l0eT0iLjU1IiBzdHJva2UtZGFzaGFycmF5PSI0IDQiLz4KICAgIDxyZWN0IHg9IjI4IiB5PSIyNzYiIHdpZHRoPSI4MiIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlOGRjY2MiIHN0cm9rZS1vcGFjaXR5PSIuNTUiIHN0cm9rZS1kYXNoYXJyYXk9IjQgNCIvPgogICAgPHJlY3QgeD0iMTIwIiB5PSIyNzYiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjZTg3ODYzIiBmaWxsLW9wYWNpdHk9Ii4zNSIvPgogICAgPHJlY3QgeD0iMjgiIHk9IjMzNCIgd2lkdGg9IjI0NCIgaGVpZ2h0PSI5IiByeD0iNC41IiBmaWxsPSIjNGE0NzQwIi8+CiAgICA8cmVjdCB4PSIyOCIgeT0iMzU4IiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjkiIHJ4PSI0LjUiIGZpbGw9IiM0YTQ3NDAiLz4KICAgIDx0ZXh0IHg9IjI4IiB5PSItMTgiIGZpbGw9IiNhYWE1OWEiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBsZXR0ZXItc3BhY2luZz0iMyI+VEFSR0VUIFJPTEU8L3RleHQ+CiAgPC9nPgoKICA8IS0tIGNvbm5lY3RvcnMgLS0+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTg3ODYzIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjMgOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgIDxwYXRoIGQ9Ik00MTAgMzkwIEMgNDcwIDM5MCwgNDgwIDQxNSwgNTA1IDQxNSIvPgogICAgPHBhdGggZD0iTTc5MCAzOTAgQyA3MzAgMzkwLCA3MjAgNDE1LCA2OTUgNDE1Ii8+CiAgPC9nPgoKICA8IS0tIHNjb3JlIGdhdWdlIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwMCA0MTUpIj4KICAgIDxjaXJjbGUgcj0iOTIiIGZpbGw9IiMxZDFjMTgiIHN0cm9rZT0iI2VlZTRkNiIgc3Ryb2tlLW9wYWNpdHk9Ii4xOCIvPgogICAgPGNpcmNsZSByPSI3MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2EzNzMxIiBzdHJva2Utd2lkdGg9IjEyIi8+CiAgICA8Y2lyY2xlIHI9IjcyIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjY29yYWwpIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1kYXNoYXJyYXk9IjQ1MiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjEzNiIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwKSIvPgogICAgPHRleHQgeT0iMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmNGVlZTQiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjQwIiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iLTIiPjcwJTwvdGV4dD4KICAgIDx0ZXh0IHk9IjM0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjYWFhNTlhIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGV0dGVyLXNwYWNpbmc9IjIiPlNLSUxMIEZJVDwvdGV4dD4KICA8L2c+CgogIDx0ZXh0IHg9IjYwMCIgeT0iNjcyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZTg3ODYzIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzNCIgZm9udC1zdHlsZT0iaXRhbGljIj55b3VyIGdhcHMsIG1hZGUgY2xlYXIuPC90ZXh0PgogIDx0ZXh0IHg9IjYwMCIgeT0iNzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjYWFhNTlhIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNSIgbGV0dGVyLXNwYWNpbmc9IjQiPkNBUkVFUk1BVENIIEFJIMK3IFJVTlMgSU4gWU9VUiBCUk9XU0VSPC90ZXh0Pgo8L3N2Zz4=",
       imageAlt: "Illustration of a resume and a job description compared side by side, producing a skill fit score",
       links: [{ label: "View live project", url: "https://anshsharma2674.github.io/CareerMatch-AI-Resume-Skill-Gap-Analyzer/" }]
+    },
+    {
+      number: "03",
+      category: "SOFTWARE PROJECT",
+      name: "SpendWise AI — Smart Expense Analyzer",
+      description: "A private, browser-based personal finance dashboard that turns your own transactions into clear spending, budget and savings insights. Data never leaves the browser, and the AI insights are explainable, rule-based analytics rather than a black-box model.",
+      highlights: ["Income vs expense and category charts", "Monthly budgets with over-limit alerts", "CSV import and export, savings goals", "Flags for unusual expenses, with evidence"],
+      technologies: ["JavaScript", "HTML & CSS", "localStorage"],
+      image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgzMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPjx0aXRsZSBpZD0idGl0bGUiPlNwZW5kV2lzZSBBSSBleHBlbnNlIGRhc2hib2FyZCBpbGx1c3RyYXRpb248L3RpdGxlPjxkZXNjIGlkPSJkZXNjIj5BIHBlcnNvbmFsIGZpbmFuY2UgZGFzaGJvYXJkIHdpdGggYSBzcGVuZGluZyBkb251dCBjaGFydCwgaW5jb21lIGFuZCBleHBlbnNlIGJhcnMsIGFuZCBidWRnZXQgcHJvZ3Jlc3MgbWV0ZXJzLjwvZGVzYz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2VmZTZkOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Q4YzliNCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgzMCIgZmlsbD0idXJsKCNiZykiLz48cmVjdCB4PSIxMDAiIHk9IjgwIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI2NzAiIHJ4PSIyOCIgZmlsbD0iI2ZhZjhmMyIgc3Ryb2tlPSIjMTkxOTE2IiBzdHJva2Utb3BhY2l0eT0iLjEyIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTMwIiByPSIxNCIgZmlsbD0iI2U4Nzg2MyIvPjxyZWN0IHg9IjE3NiIgeT0iMTIyIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE2IiByeD0iOCIgZmlsbD0iIzE5MTkxNiIvPjxyZWN0IHg9IjkwMCIgeT0iMTE4IiB3aWR0aD0iODAiIGhlaWdodD0iMjQiIHJ4PSIxMiIgZmlsbD0iI2VkZTZkYSIvPjxyZWN0IHg9Ijk5MCIgeT0iMTE4IiB3aWR0aD0iODAiIGhlaWdodD0iMjQiIHJ4PSIxMiIgZmlsbD0iI2VkZTZkYSIvPjxwYXRoIGQ9Ik0xMzAgMTY4SDEwNzAiIHN0cm9rZT0iIzE5MTkxNiIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PGNpcmNsZSBjeD0iMzAwIiBjeT0iNDAwIiByPSIxMDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U4Nzg2MyIgc3Ryb2tlLXdpZHRoPSI0MCIgc3Ryb2tlLWRhc2hhcnJheT0iMjUwLjcgNjU5LjciIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMzAwIDQwMCkiLz48Y2lyY2xlIGN4PSIzMDAiIGN5PSI0MDAiIHI9IjEwNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTkxOTE2IiBzdHJva2Utd2lkdGg9IjQwIiBzdHJva2UtZGFzaGFycmF5PSIxNTguMyA2NTkuNyIgc3Ryb2tlLWRhc2hvZmZzZXQ9Ii0yNTAuNyIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDMwMCA0MDApIi8+PGNpcmNsZSBjeD0iMzAwIiBjeT0iNDAwIiByPSIxMDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I3NGMzOSIgc3Ryb2tlLXdpZHRoPSI0MCIgc3Ryb2tlLWRhc2hhcnJheT0iMTE4LjcgNjU5LjciIHN0cm9rZS1kYXNob2Zmc2V0PSItNDA5IiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMzAwIDQwMCkiLz48Y2lyY2xlIGN4PSIzMDAiIGN5PSI0MDAiIHI9IjEwNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDlhMTgzIiBzdHJva2Utd2lkdGg9IjQwIiBzdHJva2UtZGFzaGFycmF5PSIxMzEuOSA2NTkuNyIgc3Ryb2tlLWRhc2hvZmZzZXQ9Ii01MjcuNyIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDMwMCA0MDApIi8+PHJlY3QgeD0iMjYyIiB5PSIzODgiIHdpZHRoPSI3NiIgaGVpZ2h0PSIxNCIgcng9IjciIGZpbGw9IiMxOTE5MTYiLz48cmVjdCB4PSIyNzYiIHk9IjQxMCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iI2I5YjFhMyIvPjxjaXJjbGUgY3g9IjE4NiIgY3k9IjU1MiIgcj0iNiIgZmlsbD0iI2U4Nzg2MyIvPjxyZWN0IHg9IjIwMiIgeT0iNTQ3IiB3aWR0aD0iODAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjY2ZjNmI2Ii8+PGNpcmNsZSBjeD0iMzIyIiBjeT0iNTUyIiByPSI2IiBmaWxsPSIjMTkxOTE2Ii8+PHJlY3QgeD0iMzM4IiB5PSI1NDciIHdpZHRoPSI4MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNjZmM2YjYiLz48Y2lyY2xlIGN4PSIxODYiIGN5PSI1ODAiIHI9IjYiIGZpbGw9IiNiNzRjMzkiLz48cmVjdCB4PSIyMDIiIHk9IjU3NSIgd2lkdGg9IjgwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iI2NmYzZiNiIvPjxjaXJjbGUgY3g9IjMyMiIgY3k9IjU4MCIgcj0iNiIgZmlsbD0iI2Q5YTE4MyIvPjxyZWN0IHg9IjMzOCIgeT0iNTc1IiB3aWR0aD0iODAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjY2ZjNmI2Ii8+PHJlY3QgeD0iNTQwIiB5PSIyMDAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMTQiIHJ4PSI3IiBmaWxsPSIjMTkxOTE2Ii8+PHJlY3QgeD0iNTQwIiB5PSIyMjIiIHdpZHRoPSIxMTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjYjliMWEzIi8+PHJlY3QgeD0iNTYwIiB5PSIzMjAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxNTAiIHJ4PSI2IiBmaWxsPSIjZTg3ODYzIi8+PHJlY3QgeD0iNTkyIiB5PSIzNjAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxMTAiIHJ4PSI2IiBmaWxsPSIjMTkxOTE2Ii8+PHJlY3QgeD0iNjQ2IiB5PSIzMDAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxNzAiIHJ4PSI2IiBmaWxsPSIjZTg3ODYzIi8+PHJlY3QgeD0iNjc4IiB5PSIzNDAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxMzAiIHJ4PSI2IiBmaWxsPSIjMTkxOTE2Ii8+PHJlY3QgeD0iNzMyIiB5PSIzMzAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxNDAiIHJ4PSI2IiBmaWxsPSIjZTg3ODYzIi8+PHJlY3QgeD0iNzY0IiB5PSIzNDUiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxMjUiIHJ4PSI2IiBmaWxsPSIjMTkxOTE2Ii8+PHJlY3QgeD0iODE4IiB5PSIyODAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxOTAiIHJ4PSI2IiBmaWxsPSIjZTg3ODYzIi8+PHJlY3QgeD0iODUwIiB5PSIzNTAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxMjAiIHJ4PSI2IiBmaWxsPSIjMTkxOTE2Ii8+PHJlY3QgeD0iOTA0IiB5PSIzMTAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxNjAiIHJ4PSI2IiBmaWxsPSIjZTg3ODYzIi8+PHJlY3QgeD0iOTM2IiB5PSIzMzAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxNDAiIHJ4PSI2IiBmaWxsPSIjMTkxOTE2Ii8+PHJlY3QgeD0iOTkwIiB5PSIyOTAiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxODAiIHJ4PSI2IiBmaWxsPSIjZTg3ODYzIi8+PHJlY3QgeD0iMTAyMiIgeT0iMzY1IiB3aWR0aD0iMjYiIGhlaWdodD0iMTA1IiByeD0iNiIgZmlsbD0iIzE5MTkxNiIvPjxwYXRoIGQ9Ik01NDAgNDcwSDEwNjAiIHN0cm9rZT0iI2Q5ZDBjMSIvPjxyZWN0IHg9IjU0MCIgeT0iNTIwIiB3aWR0aD0iOTAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjY2ZjNmI2Ii8+PHJlY3QgeD0iNjUwIiB5PSI1MTciIHdpZHRoPSI0MTAiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjZWNlNWQ4Ii8+PHJlY3QgeD0iNjUwIiB5PSI1MTciIHdpZHRoPSIyOTAiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjZTg3ODYzIi8+PHJlY3QgeD0iNTQwIiB5PSI1NTYiIHdpZHRoPSI5MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNjZmM2YjYiLz48cmVjdCB4PSI2NTAiIHk9IjU1MyIgd2lkdGg9IjQxMCIgaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiNlY2U1ZDgiLz48cmVjdCB4PSI2NTAiIHk9IjU1MyIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiNkOWExODMiLz48cmVjdCB4PSI1NDAiIHk9IjU5MiIgd2lkdGg9IjkwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iI2NmYzZiNiIvPjxyZWN0IHg9IjY1MCIgeT0iNTg5IiB3aWR0aD0iNDEwIiBoZWlnaHQ9IjE2IiByeD0iOCIgZmlsbD0iI2VjZTVkOCIvPjxyZWN0IHg9IjY1MCIgeT0iNTg5IiB3aWR0aD0iNDEwIiBoZWlnaHQ9IjE2IiByeD0iOCIgZmlsbD0iI2I3NGMzOSIvPjxyZWN0IHg9IjE1MCIgeT0iNjU0IiB3aWR0aD0iOTEwIiBoZWlnaHQ9IjU2IiByeD0iMTYiIGZpbGw9IiNmMmVlZTYiIHN0cm9rZT0iIzE5MTkxNiIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PGNpcmNsZSBjeD0iMTgyIiBjeT0iNjgyIiByPSI4IiBmaWxsPSIjZTg3ODYzIi8+PHJlY3QgeD0iMjA2IiB5PSI2NzIiIHdpZHRoPSIzMDAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjMTkxOTE2Ii8+PHJlY3QgeD0iMjA2IiB5PSI2OTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiNiOWIxYTMiLz48L3N2Zz4=",
+      imageAlt: "Illustrated expense dashboard with a spending donut chart, income and expense bars, and budget progress meters",
+      links: [{ label: "View live project", url: "https://anshsharma2674.github.io/SpendWise-AI-Smart-Expense-Analyzer/" }]
     }
   ],
   certifications: [
@@ -603,8 +644,21 @@ window.PORTFOLIO = {
     <section class="work section-wrap section-block" id="work" aria-labelledby="work-title">
       <div class="section-heading reveal"><span class="section-index">02 — PROJECT WORK</span><span class="section-line" aria-hidden="true"></span><span class="mono section-aside">BUILT THROUGH PRACTICE</span></div>
       <div class="work-title-row reveal"><h2 id="work-title">Selected <em>projects</em><span class="coral">.</span></h2><span class="work-count mono" data-bind="projectCount">02 PROJECTS</span></div>
-      <p class="work-intro reveal">A closer look at two tools I designed and built: one that brings everyday academic planning into one place, and one that compares a resume against a target role.</p>
-      <div class="project-list" data-bind="projects"></div>
+      <p class="work-intro reveal">A closer look at the tools I have designed and built, from semester planning to resume analysis to personal finance. Scroll sideways or use the arrows to browse them all.</p>
+      <div class="project-carousel">
+        <div class="carousel-stage">
+          <button type="button" class="carousel-btn carousel-arrow carousel-side carousel-side-prev" data-carousel-prev aria-label="Previous project">←</button>
+          <div class="project-list" data-bind="projects" tabindex="0" role="region" aria-label="Projects. Scroll sideways to see more."></div>
+          <button type="button" class="carousel-btn carousel-arrow carousel-side carousel-side-next" data-carousel-next aria-label="Next project">→</button>
+        </div>
+        <div class="carousel-bar">
+          <div class="carousel-progress" aria-hidden="true"><span></span></div>
+          <span class="carousel-status" data-carousel-status>01 / 01</span>
+          <div class="carousel-controls">
+            <button type="button" class="carousel-btn" data-carousel-toggle aria-label="Pause automatic scrolling">PAUSE</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="certifications section-wrap section-block" id="certifications" aria-labelledby="certifications-title">
@@ -688,10 +742,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const actions = project.links.map(link => externalAnchor(link.url, link.label, 'project-link')).join('');
       return `<article class="project-card reveal" data-tilt>
         <a class="project-art" href="${escapeHtml(safeUrl(project.links[0]?.url || '#'))}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(project.links[0]?.label || project.name)}">
-          <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" loading="lazy" width="1200" height="800">
+          <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" loading="lazy" width="1200" height="800" draggable="false">
           <span class="art-open" aria-hidden="true">↗</span>
         </a>
-        <div class="project-info"><div class="project-meta"><span>${escapeHtml(project.number)} / ${escapeHtml(project.category)}</span><span class="project-status"><i aria-hidden="true"></i> ${index === 2 ? 'BADGE EARNED' : 'COMPLETED'}</span></div>
+        <div class="project-info"><div class="project-meta"><span>${escapeHtml(project.number)} / ${escapeHtml(project.category)}</span><span class="project-status"><i aria-hidden="true"></i> COMPLETED</span></div>
           <h3>${escapeHtml(project.name)}</h3><p>${escapeHtml(project.description)}</p>${highlights ? `<ul class="project-highlights">${highlights}</ul>` : ''}<div class="tag-row">${tech}</div><div class="project-actions">${actions}</div>
         </div>
       </article>`;
@@ -811,6 +865,108 @@ document.addEventListener('DOMContentLoaded', function () {
       card.addEventListener('pointerleave', () => { card.style.transform = ''; });
     });
   }
+
+  // Projects carousel: snap scrolling, arrows, mouse drag, progress, and a pausable auto-advance.
+  (() => {
+    const list = document.querySelector('.project-list');
+    const bar = document.querySelector('.carousel-bar');
+    if (!list || !bar) return;
+    const cards = [...list.children];
+    const prev = document.querySelector('[data-carousel-prev]');
+    const next = document.querySelector('[data-carousel-next]');
+    const toggle = bar.querySelector('[data-carousel-toggle]');
+    const fill = bar.querySelector('.carousel-progress span');
+    const status = bar.querySelector('[data-carousel-status]');
+    const pad = n => String(n).padStart(2, '0');
+    const inset = () => parseFloat(getComputedStyle(list).paddingLeft) || 0;
+    const maxScroll = () => Math.max(0, list.scrollWidth - list.clientWidth);
+    const atStart = () => list.scrollLeft <= 2;
+    const atEnd = () => list.scrollLeft >= maxScroll() - 2;
+    const nearest = () => {
+      let best = 0, gap = Infinity;
+      cards.forEach((card, i) => { const d = Math.abs(card.offsetLeft - inset() - list.scrollLeft); if (d < gap) { gap = d; best = i; } });
+      return best;
+    };
+    const index = () => atEnd() ? cards.length - 1 : nearest();
+    const goTo = (i, behavior) => {
+      const card = cards[Math.max(0, Math.min(cards.length - 1, i))];
+      list.scrollTo({ left: Math.min(maxScroll(), Math.max(0, card.offsetLeft - inset())), behavior: behavior || (reducedMotion ? 'auto' : 'smooth') });
+    };
+
+    let frame = 0, timer = 0, userPaused = reducedMotion, hovering = false, inView = false, lastUse = 0;
+    const update = () => {
+      frame = 0;
+      const max = maxScroll();
+      bar.hidden = prev.hidden = next.hidden = max <= 4;
+      const share = 1 / cards.length;
+      fill.style.transform = `scaleX(${share + (1 - share) * (max ? Math.min(1, list.scrollLeft / max) : 0)})`;
+      status.textContent = `${pad(index() + 1)} / ${pad(cards.length)}`;
+      prev.disabled = atStart();
+      next.disabled = atEnd();
+    };
+    const queueUpdate = () => { if (!frame) frame = requestAnimationFrame(update); };
+    list.addEventListener('scroll', queueUpdate, { passive: true });
+    window.addEventListener('resize', queueUpdate, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(queueUpdate).observe(list);
+    window.addEventListener('load', queueUpdate);
+
+    const touched = () => { lastUse = Date.now(); };
+    prev.addEventListener('click', () => { touched(); goTo(index() - 1); });
+    next.addEventListener('click', () => { touched(); goTo(index() + 1); });
+    list.addEventListener('keydown', event => {
+      if (event.target !== list || (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft')) return;
+      event.preventDefault(); touched(); goTo(index() + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    ['touchstart', 'wheel'].forEach(name => list.addEventListener(name, touched, { passive: true }));
+
+    // Auto-advance runs only while the section is on screen and nobody is interacting with it.
+    const advance = () => {
+      if (Date.now() - lastUse < 8000) return;
+      if (atEnd()) list.scrollTo({ left: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+      else goTo(index() + 1);
+    };
+    const sync = () => {
+      const run = !userPaused && !hovering && inView && !document.hidden && maxScroll() > 4;
+      if (run && !timer) timer = setInterval(advance, 5200);
+      if (!run && timer) { clearInterval(timer); timer = 0; }
+    };
+    const paintToggle = () => {
+      toggle.textContent = userPaused ? 'PLAY' : 'PAUSE';
+      toggle.setAttribute('aria-label', userPaused ? 'Start automatic scrolling' : 'Pause automatic scrolling');
+    };
+    toggle.addEventListener('click', () => { userPaused = !userPaused; paintToggle(); sync(); });
+    const carousel = list.closest('.project-carousel');
+    carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovering = true; sync(); } });
+    carousel.addEventListener('pointerleave', () => { hovering = false; sync(); });
+    carousel.addEventListener('focusin', () => { hovering = true; sync(); });
+    carousel.addEventListener('focusout', () => { hovering = false; sync(); });
+    document.addEventListener('visibilitychange', sync);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => { inView = entries[0].isIntersecting; sync(); }, { threshold: .3 }).observe(carousel);
+    }
+
+    // Mouse drag-to-scroll; touch and trackpads already scroll natively.
+    let dragging = false, moved = false, startX = 0, startLeft = 0;
+    list.addEventListener('pointerdown', event => {
+      if (event.pointerType !== 'mouse' || event.button !== 0) return;
+      dragging = true; moved = false; startX = event.clientX; startLeft = list.scrollLeft;
+    });
+    window.addEventListener('pointermove', event => {
+      if (!dragging) return;
+      const dx = event.clientX - startX;
+      if (!moved && Math.abs(dx) > 6) { moved = true; touched(); list.classList.add('is-dragging'); }
+      if (moved) list.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      if (!dragging) return;
+      dragging = false;
+      if (moved) { list.classList.remove('is-dragging'); goTo(nearest()); setTimeout(() => { moved = false; }, 0); }
+    });
+    list.addEventListener('click', event => { if (moved) { event.preventDefault(); event.stopPropagation(); } }, true);
+
+    paintToggle();
+    update();
+  })();
 
   initHeroScene(document.querySelector('#orb-canvas'), reducedMotion);
 
